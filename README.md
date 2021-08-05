@@ -1,2 +1,0 @@
-# quickapp-docs
-quickapp-docs
