@@ -5,13 +5,13 @@
 Linux
 
 ```
-hap init <ProjectName>
+aiot init <ProjectName>
 ```
 
 Windows
 
 ```
-node /path/to/your/hap-toolkit/bin/hap init <ProjectName>
+node /path/to/your/aiot-toolkit/bin/aiot init <ProjectName>
 ```
 
 2 Enter the root directory of the project and run the following command to install the dependency packages.

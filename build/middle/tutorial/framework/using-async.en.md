@@ -29,7 +29,7 @@ globalRef.regeneratorRuntime = require('babel-runtime/regenerator')
 
 By introducing this script in `app.ux`, you can inject the support to `async`. Search for `regeneratorRuntime` in the `build/app.js` after the project has been compiled, you will find that it has been injected successfully.
 
-**Attention: This feature is only supported on hap-toolkit version 24 or later (because it's required to add library dependencies and modify compilation options)**
+**Attention: This feature is only supported on aiot-toolkit version 24 or later (because it's required to add library dependencies and modify compilation options)**
 
 ## Use async and await syntax
 
