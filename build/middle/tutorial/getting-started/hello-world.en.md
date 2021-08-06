@@ -18,11 +18,7 @@ Install the development software (Node.js and aiot-toolkit) and verify it. Go to
 Once the environment is built, developers can use the global `aiot` command to create a project template as shown below. `<ProjectName>` is the custom project name.
 
 ```
-# Linux
 aiot init <ProjectName>
-
-# Windows
-node /path/to/your/aiot-toolkit/bin/aiot init <ProjectName>
 ```
 
 After the command is executed, the `<ProjectName>` folder will be created in current directory. It will be the project's root folder.
@@ -129,11 +125,11 @@ After configuration, tap the `Back button` on the phone to go back to the homepa
 
 If settings couldn't be applied, check if there are new requests in the terminal window that the "npm run server" is running on: "/bundle" (i.e.: Download the RPK package).
 
-![img](HelloWorld.3.png)
+![img](HelloWorld.1.png)
 
 The effect is as shown in the image below:
 
-![img](HelloWorld.4.png)
+![img](HelloWorld.2.png)
 
 #### 2. Local installation
 

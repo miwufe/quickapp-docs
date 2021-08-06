@@ -88,8 +88,6 @@ Note:
 
 If you encounter **xxx cannot be cast to xxx at ...list** error similar to the figure below:
 
-![img](list.0.png)
-
 please check the `list-item component` for the following conditions:
 
 - The `type attribute` is not set. Solution: Set the `type attribute`.
@@ -109,8 +107,6 @@ the elements in the list can clearly be divided into three categories. We set th
 - Load more `list-item`, the custom name for the `type` attribute is `loadMore`
 
 After analyzing the categories of list element, as in the structure chart shown in the bottom right:
-
-![img](list.1.png) ![img](list.2.png)
 
 Code is as follows (see the tutorial document with the corresponding project code):
 

@@ -44,7 +44,6 @@ Keep icon corners square (not rounded). There should be no white margins.
 
 Example:
 
-![img](logo.png)
 
 ```
 {
