@@ -8,7 +8,7 @@ You need to install 8.0 or later versions of Node.js. Download it from the  [Nod
 ## Install aiot-toolkit
 
 ```
-npm install aiot-toolkit@1.0.6-beta.0 -g --force 
+npm install aiot-toolkit -g --force 
 ```
 
 
