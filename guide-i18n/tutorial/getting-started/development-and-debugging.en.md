@@ -58,7 +58,7 @@ npm run debug
 
 Note:
 
-If the version of node you're using is 8.x.x, you'll have to do the following: after running the `hap update --force` for the first time, delete the package-lock.json file, run `npm install` and `hap update --force` once; after that, start the debug server by `npm run debug`.
+If the version of node you're using is 8.x.x, you'll have to do the following: after running the `aiot update --force` for the first time, delete the package-lock.json file, run `npm install` and `aiot update --force` once; after that, start the debug server by `npm run debug`.
 
 ## Debug browser rendering
 

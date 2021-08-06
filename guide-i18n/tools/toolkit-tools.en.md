@@ -1,6 +1,6 @@
 # Toolkit tools
 
-In order to facilitate the development, hap-toolkit is provided to help developers to create projects and complete other work using command line tools.
+In order to facilitate the development, aiot-toolkit is provided to help developers to create projects and complete other work using command line tools.
 
 ## Create new projects
 
@@ -9,13 +9,13 @@ Used to create a project template
 Linux
 
 ```
-hap init <ProjectName>
+aiot init <ProjectName>
 ```
 
 Windows
 
 ```
-node /path/to/your/hap-toolkit/bin/hap init <ProjectName>
+node /path/to/your/aiot-toolkit/bin/aiot init <ProjectName>
 ```
 
 Enter the root directory of the project and run the following command to install the dependency packages
@@ -33,18 +33,18 @@ Enter the project directory that has been built
 Linux
 
 ```
-hap update
+aiot update
 ```
 
 Windows
 
 ```
-node /path/to/your/hap-toolkit/bin/hap update
+node /path/to/your/aiot-toolkit/bin/aiot update
 ```
 
 Command parameters:
 
--- force: Forced update (Update current project to the hap-toolkit version. It should be noted that this action may downgrade the version.)
+-- force: Forced update (Update current project to the aiot-toolkit version. It should be noted that this action may downgrade the version.)
 
 After updating, run the "npm install" command in the project directory to install the dependency library
 
@@ -53,15 +53,15 @@ After updating, run the "npm install" command in the project directory to instal
 Linux
 
 ```
-hap help
+aiot help
 ```
 
 Windows
 
 ```
-node /path/to/your/hap-toolkit/bin/hap help
+node /path/to/your/aiot-toolkit/bin/aiot help
 ```
 
 ## Update tools
 
-Currently, you can only update the hap-toolkit manually. Remove the old hap-toolkit from the directory, and refer to [Building environment](../概述/环境搭建.html) to install hap-toolkit again. After the installation, update the project following the steps above.
+Currently, you can only update the aiot-toolkit manually. Remove the old aiot-toolkit from the directory, and refer to [Building environment](../概述/环境搭建.html) to install aiot-toolkit again. After the installation, update the project following the steps above.
