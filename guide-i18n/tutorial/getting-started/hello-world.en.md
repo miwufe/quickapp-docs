@@ -86,7 +86,7 @@ Install and open the app platform on a mobile phone. A notification will appear:
 
 Tap the `Back button` on the phone to open the menu:
 
-![img](HelloWorld.1.png)![img](HelloWorld.2.png)
+![img](hello-world.1.png)![img](hello-world.2.png)
 
 Frequently used menu items include:
 
@@ -125,11 +125,11 @@ After configuration, tap the `Back button` on the phone to go back to the homepa
 
 If settings couldn't be applied, check if there are new requests in the terminal window that the "npm run server" is running on: "/bundle" (i.e.: Download the RPK package).
 
-![img](HelloWorld.1.png)
+![img](hello-world.1.png)
 
 The effect is as shown in the image below:
 
-![img](HelloWorld.2.png)
+![img](hello-world.2.png)
 
 #### 2. Local installation
 
