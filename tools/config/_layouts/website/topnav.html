@@ -1,0 +1,31 @@
+{% macro getLink(_article) %}
+    {% if _article.path and getPageByPath(_article.path) %}
+        {{ _article.path|resolveFile }}{{ _article.anchor }}
+    {% else %}
+        {% if _article.articles.length > 0 %}
+            {{ getLink(_article.articles[0]) }}
+        {% else %}
+            javascript:;
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+{% set _levels = page.level.split('.') %}
+
+{% for part in summary.parts %}
+    {% set _level_0_loop = loop %}
+    {% for article in part.articles %}
+        {% set _level_1_loop = loop %}
+        {% for article in article.articles %}
+            {% set _level_2_loop = loop %}
+
+            {% if article.url %}
+                <a target="_blank" href="{{ article.url }}">{{article.title}}<i class="fa fa-external-link-square" aria-hidden="true"></i></a>
+            {% else %}
+                <a href="{{ getLink(article) }}"
+                    {% if [_level_0_loop.index,_level_1_loop.index,_level_2_loop.index]|join(',') == [_levels[0],_levels[1],_levels[2]]|join(',') %}class="current" {% endif %}
+                >{{article.title}}</a>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}

@@ -1,0 +1,68 @@
+{% macro articles(_articles) %}
+    {% for article in _articles %}
+        {% if article.title != 'hide-docs' %}
+            <li
+              class="
+                chapter
+                {% if article.path == file.path and not article.anchor %} active {% endif %}
+                {% if not article.anchor and page.level.startsWith(article.level) %} open {% endif %}
+                open
+                "
+                data-level="{{ article.level }}"
+                {% if article.path %} data-path="{{ article.path|resolveFile }}" {% endif %}
+            >
+                {% if article.path and getPageByPath(article.path) %}
+                    <a href="{{ article.path|resolveFile }}{{ article.anchor }}">
+                {% elif article.url %}
+                    <a target="_blank" href="{{ article.url }}">
+                {% else %}
+                    <a href="javascript:;">
+                {% endif %}
+
+                {% if article.level != "0" and config.pluginsConfig['theme-default'].showLevel %}
+                    <b>{{ article.level }} </b>
+                {% endif %}
+
+                <!-- {% if article.level != "0" %}
+                    <span class="icon icon-rhombus"></span>
+                {% endif %} -->
+
+                {{ article.title }}
+
+                {% if article.articles.length > 0 %}
+                    <span class="icon icon-arrow"></span>
+                {% endif %}
+
+                    </a>
+
+                {% if article.articles.length > 0 %}
+                    <ul class="articles">
+                        {{ articles(article.articles, file, config) }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+<ul class="summary">
+    {% set _divider = false %}
+
+    {% if config.links.sidebar  %}
+        {% for linkTitle, link in config.links.sidebar  %}
+            {% set _divider = true %}
+            <li>
+                <a href="{{ link }}" target="_blank" class="custom-link">{{ linkTitle }}</a>
+            </li>
+        {% endfor %}
+    {% endif %}
+
+    {% if _divider %}
+        <li class="divider"></li>
+    {% endif %}
+
+    {% set _levels = page.level.split('.') %}
+    {% set _sideArticles = summary.parts[_levels[0] - 1].articles[_levels[1] - 1].articles[_levels[2] - 1].articles %}
+
+    {{ articles(_sideArticles, file, config) }}
+</ul>

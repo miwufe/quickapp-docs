@@ -1,0 +1,45 @@
+{
+  "title": "快应用开发文档",
+  "description": "快应用的开发文档，供快应用开发者学习和参考",
+  "author": "QuickApp.cn",
+  "language": "zh-hans",
+  "gitbook": "3.2.3",
+  "plugins": [
+    "html-minifier",
+    "-sharing",
+    "-fontsettings",
+    "hap-util",
+    "favicon",
+    "theme-default",
+    "nocache",
+    "-lunr",
+    "-search",
+    "search-pro",
+    "-highlight",
+    "highlight-hap",
+    "anchor-navigation-ex"
+  ],
+  "pluginsConfig": {
+    "favicon": {
+      "shortcut": "",
+      "bookmark": ""
+    },
+    "html-minifier": {
+      "decodeEntities": true,
+      "removeEmptyElements": false,
+      "html5": true
+    },
+    "anchor-navigation-ex": {
+      "showLevel": false,
+      "associatedWithSummary": false,
+      "printLog": false,
+      "multipleH1": true,
+      "mode": "",
+      "showGoTop":true
+    }
+  },
+  "styles": {
+    "website": "styles/website.css"
+  },
+  "version": "{{datetime}}"
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE HTML><html lang="zh-hans"><head><meta charset="UTF-8"><meta content="text/html; charset=utf-8"http-equiv="Content-Type"><title>Parent-child component communication</title><meta content="IE=edge"http-equiv="X-UA-Compatible"/><meta content="
+  
+"name="description"><meta content="GitBook 3.2.3"name="generator"><meta content="QuickApp.cn"name="author"><link href="../../gitbook/style.css"rel="stylesheet"><link href="../../gitbook/gitbook-plugin-search-pro/search.css"rel="stylesheet"><link href="../../gitbook/gitbook-plugin-highlight-hap/website.css"rel="stylesheet"><link href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css"rel="stylesheet"><link href="../../styles/website.css"rel="stylesheet"><meta content="no-cache"http-equiv="Pragma"/><meta content="no-cache"http-equiv="Cache-Control"/><meta content="0"http-equiv="Expires"/><meta content="true"name="HandheldFriendly"/><meta content="width=device-width,initial-scale=1,user-scalable=no"name="viewport"><meta content="yes"name="apple-mobile-web-app-capable"><meta content="black"name="apple-mobile-web-app-status-bar-style"><link href="../../gitbook/images/apple-touch-icon-precomposed-152.png"rel="apple-touch-icon-precomposed"sizes="152x152"><link href="../../gitbook/images/favicon.ico"rel="shortcut icon"type="image/x-icon"><link href="using-async.en.html"rel="next"/><link href="event-monitoring-and-triggering.en.html"rel="prev"/><link href="using-async.en.html"rel="next"/><link href="event-monitoring-and-triggering.en.html"rel="prev"/></head><body><header class="doc-header"><a href="javascript:;"class="btn doc-menu-toggle"aria-label=""><i class="fa fa-bars"aria-hidden="true"></i></a><div class="doc-logo"><a style="font-size:150%"target="_blank"title="quickapp">QuickApp</a></div><div class="doc-nav"><a href="../../"class="current">Tutorial</a> <a href="../../tools/toolkit-tools.en.html">Tools</a> <a href="../../framework/index.en.html">Framework</a> <a href="../../widgets/common-events.en.html">Widgets</a> <a href="../../features/index.en.html">Features</a></div><div class="doc-search-bar"><div id="book-search-input"><i class="fa fa-search icon-search"aria-hidden="true"></i> <input placeholder="关键字搜索"type="text"></div></div></header><div class="doc-container"><nav class="doc-menu"role="navigation"><ul class="summary"><li class="open chapter"data-level="1.1.1.1"><a href="javascript:;">Get started <span class="icon icon-arrow"></span></a><ul class="articles"><li class="open chapter"data-level="1.1.1.1.1"data-path="../../"><a href="../../">Build environment</a></li><li class="open chapter"data-level="1.1.1.1.2"data-path="../getting-started/the-first-program.en.html"><a href="../getting-started/the-first-program.en.html">The first program</a></li><li class="open chapter"data-level="1.1.1.1.3"data-path="../getting-started/hello-world.en.html"><a href="../getting-started/hello-world.en.html">HelloWorld</a></li><li class="open chapter"data-level="1.1.1.1.4"data-path="../getting-started/development-and-debugging.en.html"><a href="../getting-started/development-and-debugging.en.html">Development and debugging</a></li><li class="open chapter"data-level="1.1.1.1.5"data-path="../getting-started/project-configuration.en.html"><a href="../getting-started/project-configuration.en.html">Project configuration</a></li></ul></li><li class="open open chapter"data-level="1.1.1.2"><a href="javascript:;">Framework <span class="icon icon-arrow"></span></a><ul class="articles"><li class="open chapter"data-level="1.1.1.2.1"data-path="lifecycle.en.html"><a href="lifecycle.en.html">Lifecycle</a></li><li class="open chapter"data-level="1.1.1.2.2"data-path="page-style-and-layout.en.html"><a href="page-style-and-layout.en.html">Page style and layout</a></li><li class="open chapter"data-level="1.1.1.2.3"data-path="framework-instructions.en.html"><a href="framework-instructions.en.html">Framework commands</a></li><li class="open chapter"data-level="1.1.1.2.4"data-path="switching-pages-and-passing-parameters.en.html"><a href="switching-pages-and-passing-parameters.en.html">Switching pages and passing parameters</a></li><li class="open chapter"data-level="1.1.1.2.5"data-path="event-monitoring-and-triggering.en.html"><a href="event-monitoring-and-triggering.en.html">Event monitoring and triggering</a></li><li class="open open chapter active"data-level="1.1.1.2.6"data-path="parent-child-component-communication.en.html"><a href="parent-child-component-communication.en.html">Parent-child component communication</a></li><li class="open chapter"data-level="1.1.1.2.7"data-path="using-async.en.html"><a href="using-async.en.html">Using async</a></li></ul></li><li class="open chapter"data-level="1.1.1.3"data-path="../widgets/index.en.md"><a href="javascript:;">Widgets <span class="icon icon-arrow"></span></a><ul class="articles"><li class="open chapter"data-level="1.1.1.3.1"data-path="../widgets/list-tutorial.en.html"><a href="../widgets/list-tutorial.en.html">List tutorial</a></li></ul></li></ul></nav><div class="doc-content"><div class="doc-content-inner"><div class="page-inner"><div id="book-search-results"><div class="search-noresults"><section class="markdown-section normal"><a href="#parent-child-component-communication"id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="parent-child-component-communication"><a href="#parent-child-component-communication"class="anchor-navigation-ex-anchor"name="parent-child-component-communication"><i class="fa fa-link"aria-hidden="true"></i></a>Parent-child component communication</h1><blockquote><p>Learn about the development of custom components, understand communication between parent and child components (props, data, $dispatch(), $broadcast()).</p></blockquote><p>Here's what you'll be able to do after reading:</p><ul><li>Write custom components</li><li>Introduce custom components</li><li>Transfer and transform data</li><li>Trigger events between parent-child components: <code>$broadcast()</code>, <code>$dispatch()</code>, child component <code>$emit()</code> node events</li><li>Organize communication between sibling components</li></ul><blockquote><p>You can find the code described in this tutorial here: src/InterVms directory</p></blockquote><h2 id="writing-custom-components"><a href="#writing-custom-components"class="anchor-navigation-ex-anchor"name="writing-custom-components"><i class="fa fa-link"aria-hidden="true"></i></a>Writing custom components</h2><p>When developing pages, developers must use native components, such as <code>text</code> and <code>div</code>. These components are rendered using the native layer of each platform. When developing complex pages, developers write all of the UI parts into a single <code>&lt;template></code>, reducing the maintainability of the code and causing unnecessary coupling between modules.</p><p>In order to better organize the logic and code, the page can be split into multiple modules according to function. Each module is responsible for a single function. The page then imports and manages the modules. <code>Custom components</code> mean the coding for transmission functions and configuration data are entirely separated.</p><p>A custom component is a component written by developers that works like native, and is rendered using the <code>&lt;template></code>. As with a page, it uses ViewModel for management of data, events, and methods.</p><p>From this perspective, pages are also a type of special custom component that can be used without being imported, and which also serve the entire page. There is no need to go into details about <code>ux page</code> development. The following is an example:</p><pre><code>&lt;template>
+  &lt;div class="tutorial-page">
+    &lt;text class="tutorial-title">Custom component: &lt;/text>
+    &lt;text>{{ prop1 }}&lt;/text>
+    &lt;text>{{ prop2Object.name }}&lt;/text>
+  &lt;/div>
+&lt;/template>
+
+&lt;style lang="less">
+  .tutorial-page {
+    flex-direction: column;
+    padding-top: 20px;
+
+    .tutorial-title {
+      font-weight: bold;
+    }
+  }
+&lt;/style>
+
+&lt;script>
+  // Child component
+  export default {
+    props: [
+      'prop1',
+      'prop2Object'
+    ],
+    data: {
+    },
+    onInit () {
+      console.info(`Data passed from outside: `, this.prop1, this.prop2Object)
+    }
+  }
+&lt;/script>
+</code></pre><p>A custom component is different from a page component due the presence of a <code>props</code> attribute, which is used to indicate <strong>acceptable external data transfers</strong>; <code>props</code> is an array, and each element in the array is an exposed <code>attribute name</code>.</p><p>Hint</p><ul><li>If the attribute name uses a hump attribute, such as <code>prop2Object</code>, then use <code>-</code> to join the parts, for example <code>prop2-object</code> during external data transfer.</li></ul><h2 id="introducing-custom-components"><a href="#introducing-custom-components"class="anchor-navigation-ex-anchor"name="introducing-custom-components"><i class="fa fa-link"aria-hidden="true"></i></a>Introducing custom components</h2><p>The traditional way of importing files is to use <code>import</code> and <code>require</code> in <code>&lt;script></code>; for example, <code>Vue</code>, <code>React</code>.</p><p>The framework imports custom components by using the <code>&lt;import> label</code>, as shown by the code below:</p><pre><code>&lt;import name="comp-part1" src="./part1">&lt;/import>
+</code></pre><p>The <code>src</code> attribute in the <code>&lt;import> label</code> specifies the custom component address; the <code>name</code> attribute specifies <strong>the label name</strong> when using a component in the <code>&lt;template></code></p><p>The final page definition and import method is as follows</p><pre><code>&lt;import name="comp-part1" src="./part1">&lt;/import>
+
+&lt;template>
+  &lt;div class="tutorial-page">
+    &lt;text class="tutorial-title">Page component: &lt;/text>
+    &lt;text>{{ data1 }}&lt;/text>
+    &lt;text>{{ data2.name }}&lt;/text>
+    &lt;text onclick="evtType1Emit">Trigger $broadcast()&lt;/text>
+
+    &lt;comp-part1 prop1="{{data1}}" prop2-object="{{data2}}" onevt-type3="evtTypeHandler">&lt;/comp-part1>
+  &lt;/div>
+&lt;/template>
+
+&lt;style lang="less">
+  .tutorial-page {
+    flex-direction: column;
+    padding: 20px 10px;
+
+    .tutorial-title {
+      font-weight: bold;
+    }
+  }
+&lt;/style>
+
+&lt;script>
+  // Parent component
+  export default {
+    data: {
+      data1: 'Pass strings',
+      data2: {
+        name: 'Pass objects'
+      }
+    },
+    onInit () {
+      this.$page.setTitleBar({ text: 'Parent-child component communication' })
+    },
+    evtTypeHandler (evt) {
+      console.info(`Parent component: Event response: `, evt.type, evt.detail)
+      // End the event passing
+      // evt.stop()
+    },
+    evtType1Emit () {
+      this.$broadcast('evtType1', { params: 'Extra parameters' })
+    }
+  }
+&lt;/script>
+</code></pre><h2 id="transferring-and-transforming-data"><a href="#transferring-and-transforming-data"class="anchor-navigation-ex-anchor"name="transferring-and-transforming-data"><i class="fa fa-link"aria-hidden="true"></i></a>Transferring and transforming data</h2><p>As described above, the parent component transfers data to the child component, using the <code>props</code> attribute within the child component to indicate the exposed attribute name, then indicating the transferred parent component data on the <code>component import label</code>.</p><p>If you wish to <strong>transform the data</strong> on the child component, but do not want to change the parent component data, you can use <code>$watch()</code>. If it is an attribute in the target, please use <code>.</code> to split the parameters, for example: <code>$watch(xxx.xxx.xxx, methodName)</code>.</p><p>This is shown below, target <code>prop1</code> attribute</p><pre><code>&lt;script>
+  // Child component
+  export default {
+    props: [
+      'prop1',
+      'prop2Object'
+    ],
+    data () {
+      return {
+        upperProp1: this.prop1
+      }
+    },
+    onInit () {
+      console.info(`Data passed from outside:`, this.prop1, this.prop2Object)
+
+      // Monitor data changes
+      this.$watch('prop1', 'watchPropsChange')
+      this.$watch('prop2Object.name', 'watchPropsChange')
+    },
+    /**
+     * Monitor data changes, and you can set the value to "data"
+ after you process the data
+     * @param newV
+     * @param oldV
+     */
+    watchPropsChange (newV, oldV) {
+      console.info(`Monitor data changes`, newV, oldV)
+      this.upperProp1 = newV && newV.toUpperCase()
+    }
+  }
+&lt;/script>
+</code></pre><h2 id="triggering-events-between-components"><a href="#triggering-events-between-components"class="anchor-navigation-ex-anchor"name="triggering-events-between-components"><i class="fa fa-link"aria-hidden="true"></i></a>Triggering events between components</h2><p>After the child component has completed data transformation, there are typically two ways to pass the final data to the parent component.</p><ul><li>The data transferred by the parent component is the object, and the child component <strong>directly modifies the attributes of this object</strong>; so, the parent component directly receives the final data.</li><li>The child component <code>data</code> contains internal data, which needs to be passed to the parent component: the child component uses <code>$dispatch()</code> to complete the event trigger, the parent component uses <code>$on()</code> to attach the event and respond, for example: evtType2;</li><li>The child component <code>data</code> contains internal data that needs to be given to the parent component: the child component uses <code>$emit()</code> on the event attached to the node to execute the parent component method, for example: evtType3;</li></ul><p>This is shown in the code below</p><pre><code>&lt;script>
+  // Child component
+  export default {
+    props: [
+      'prop1',
+      'prop2Object'
+    ],
+    data () {
+      return {
+        upperProp1: this.prop1
+      }
+    },
+    onInit () {
+      console.info(`Data passed from outside:`, this.prop1, this.prop2Object)
+      // Custom events with assigned ViewMode
+      this.$on('evtType1', this.evtTypeHandler)
+      this.$on('evtType2', this.evtTypeHandler)
+    },
+    evtTypeHandler (evt) {
+      console.info(`Child component: Event response: `, evt.type, evt.detail)
+      // End event passing
+      // evt.stop()
+    },
+    evtType2Emit () {
+      this.$dispatch('evtType2', { params: 'Extra parameters' })
+    },
+    evtType3Emit () {
+      this.$emit('evtType3', { params: 'Extra parameters' })
+    }
+  }
+&lt;/script>
+</code></pre><p>Therefore, the framework provides developers with bidirectional event transfer:</p><ul><li>Transfer down: triggered by the parent component, the child component responds; Invoke <code>parentVm.$broadcast()</code> to complete downward transfer, for example: evtType1</li><li>Transfer: triggered by the child component, the parent component responds; invoke <code>childVm.$dispath()</code> to complete upward transfer, for example: evtType2</li></ul><p>Hint</p><ul><li>The transfer parameters for triggering use <code>evt.detail</code> when receiving to get the parameters</li><li>When the transfer is completed, invoke <code>evt.stop ()</code> to end the transfer</li></ul><h2 id="communication-between-sibling-components"><a href="#communication-between-sibling-components"class="anchor-navigation-ex-anchor"name="communication-between-sibling-components"><i class="fa fa-link"aria-hidden="true"></i></a>Communication between sibling components</h2><p>Traditional communication between non-parent-child components such as sibling components is carried out through the Publish/Subscribe model.</p><p>Developers who want to use this capability can of course write a Pub/Sub model to achieve decoupling; of course, if the business logic is relatively simple, you can also use the VM's own event binding: <code>$on()</code>, <code>$emit()</code>.</p><p>As shown below, child component defines the logical processing of the sub-terminal, including <code>processMessage()</code> and <code>customEventInVm2()</code>. Using the latter one will have the same effect as using the <code>$on</code>:</p><pre><code>&lt;template>
+  &lt;div class="tutorial-page">
+    &lt;text class="tutorial-title">Custom component 2: &lt;/text>
+    &lt;text>Handle messages: {{msg}}&lt;/text>
+    &lt;text>Event content: {{eventDetail}}&lt;/text>
+  &lt;/div>
+&lt;/template>
+
+&lt;style lang="less">
+&lt;/style>
+
+&lt;script>
+  // Child component: part2
+  export default {
+    props: [
+    ],
+    data () {
+      return {
+        msg: null,
+        eventDetail: null
+      }
+    },
+    processMessage (msg) {
+      const now = (new Date).toISOString()
+      this.msg = `${now}: ${msg}`
+    },
+    /**
+     * Through "events" object: Add event
+     */
+    events: {
+      customEventInVm2 (evt) {
+        const now = (new Date).toISOString()
+        this.eventDetail = `${now}: ${evt.detail}`
+      }
+    }
+  }
+&lt;/script>
+</code></pre><p>Another sibling component can use <strong>cross references in the parent component</strong> to achieve the objective of cross holding of VM. This is achieved by <code>executing establishRef</code> in <code>onReady() in the lifecycle</code>, as shown in the code below:</p><pre><code>&lt;import name="comp-part2" src="./part2">&lt;/import>
+&lt;import name="comp-part3" src="./part3">&lt;/import>
+
+&lt;template>
+  &lt;div class="tutorial-page">
+    &lt;!-- Brother ViewMode communication -->
+    &lt;comp-part2 id="sibling1">&lt;/comp-part2>
+    &lt;comp-part3 id="sibling2">&lt;/comp-part3>
+  &lt;/div>
+&lt;/template>
+
+&lt;style lang="less">
+&lt;/style>
+
+&lt;script>
+  // Parent component
+  export default {
+    onReady () {
+      this.establishRef()
+    },
+    /**
+     * Establish mutual ViewMode cites
+     */
+    establishRef () {
+      const siblingVm1 = this.$vm('sibling1')
+      const siblingVm2 = this.$vm('sibling2')
+
+      siblingVm1.parentVm = this
+      siblingVm1.nextVm = siblingVm2
+      siblingVm2.parentVm = this
+      siblingVm2.previousVm = siblingVm1
+    }
+  }
+&lt;/script>
+</code></pre><p>The Pub End in the other child component is very simple. Execute <code>sendMesssage()</code> to complete the trigger, as shown in the code below:</p><pre><code>&lt;template>
+  &lt;div class="tutorial-page">
+    &lt;text class="tutorial-title">Custom component 3: &lt;/text>
+    &lt;text onclick="sendMesssage">Tap to send messages&lt;/text>
+  &lt;/div>
+&lt;/template>
+
+&lt;style lang="less">
+&lt;/style>
+
+&lt;script>
+  // Child component: part3
+  export default {
+    sendMesssage () {
+      if (this.previousVm) {
+        // Way1. Citing method
+        this.previousVm.processMessage('The content of communication among brothers')
+        // Way2. Triggering event
+        this.previousVm.$emit('customEventInVm2', 'The content of communication among brothers')
+      }
+    }
+  }
+&lt;/script>
+</code></pre><h2 id="summary"><a href="#summary"class="anchor-navigation-ex-anchor"name="summary"><i class="fa fa-link"aria-hidden="true"></i></a>Summary</h2><p>Custom components help better organize coding logic and produce a cleaner structure; Understanding data communication between parent and child components is a must-have skill for developing custom components.</p></section></div><div class="search-results"><div class="has-results"><h1 class="search-results-title"><span class="search-results-count"></span> 条匹配 "<span class="search-query"></span>" 的结果</h1><ul class="search-results-list"></ul></div><div class="no-results"><h1 class="search-results-title">没有搜索到与 "<span class="search-query"></span>" 相关的内容</h1></div></div></div></div></div><a href="event-monitoring-and-triggering.en.html"class="navigation navigation-prev"aria-label="Previous page: Event monitoring and triggering"><i class="fa fa-angle-left"></i> </a><a href="using-async.en.html"class="navigation navigation-next"aria-label="Next page: Using async"><i class="fa fa-angle-right"></i></a></div></div><script src="../../gitbook/gitbook.js"></script><script src="../../gitbook/gitbook-plugin-hap-util/plugin.js"></script><script src="../../gitbook/gitbook-plugin-nocache/nocache.js"></script><script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script><script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script><script>gitbook.page.hasChanged({page:{title:"Parent-child component communication",level:"1.1.1.2.6",depth:4,next:{title:"Using async",level:"1.1.1.2.7",depth:4,path:"tutorial/framework/using-async.en.md",ref:"tutorial/framework/using-async.en.md",articles:[]},previous:{title:"Event monitoring and triggering",level:"1.1.1.2.5",depth:4,path:"tutorial/framework/event-monitoring-and-triggering.en.md",ref:"tutorial/framework/event-monitoring-and-triggering.en.md",articles:[]},dir:"ltr"},config:{plugins:["html-minifier","-sharing","-fontsettings","hap-util","favicon","theme-default","nocache","-lunr","-search","search-pro","-highlight","highlight-hap","anchor-navigation-ex"],styles:{website:"styles/website.css"},pluginsConfig:{favicon:{shortcut:"",bookmark:""},"html-minifier":{customAttrSurround:[],removeScriptTypeAttributes:!1,removeEmptyAttributes:!1,removeRedundantAttributes:!1,removeEmptyElements:!1,sortClassName:!0,caseSensitive:!0,html5:!0,collapseWhitespace:!0,processConditionalComments:!1,quoteCharacter:null,keepClosingSlash:!0,preventAttributesEscaping:!1,minifyURLs:!1,removeAttributeQuotes:!1,decodeEntities:!0,trimCustomFragments:!1,customAttrAssign:[],includeAutoGeneratedTags:!0,collapseInlineTagWhitespace:!1,collapseBooleanAttributes:!0,minifyJS:!0,removeTagWhitespace:!0,preserveLineBreaks:!1,sortAttributes:!0,removeStyleLinkTypeAttributes:!1,removeComments:!0,minifyCSS:!0,processScripts:[],conservativeCollapse:!1,removeOptionalTags:!1,useShortDoctype:!1},"anchor-navigation-ex":{associatedWithSummary:!1,float:{floatIcon:"fa fa-navicon",level1Icon:"",level2Icon:"",level3Icon:"",showLevelIcon:!1},mode:"",multipleH1:!0,pageTop:{level1Icon:"",level2Icon:"",level3Icon:"",showLevelIcon:!1},printLog:!1,showGoTop:!0,showLevel:!1},"hap-util":{},nocache:{},"search-pro":{},"highlight-hap":{},"theme-default":{showLevel:!1,styles:{ebook:"styles/ebook.css",epub:"styles/epub.css",mobi:"styles/mobi.css",pdf:"styles/pdf.css",print:"styles/print.css",website:"styles/website.css"}}},theme:"default",author:"QuickApp.cn",pdf:{pageNumbers:!0,fontSize:12,fontFamily:"Arial",paperSize:"a4",chapterMark:"pagebreak",pageBreaksBefore:"/",margin:{right:62,left:62,top:56,bottom:56}},structure:{langs:"LANGS.md",readme:"README.md",glossary:"GLOSSARY.md",summary:"SUMMARY.md"},variables:{},version:"{{datetime}}",title:"快应用开发文档",language:"zh-hans",gitbook:"3.2.3",description:"快应用的开发文档，供快应用开发者学习和参考"},file:{path:"tutorial/framework/parent-child-component-communication.en.md",mtime:"2020-09-23T10:05:41.000Z",type:"markdown"},gitbook:{version:"3.2.3",time:"2021-08-06T01:15:31.113Z"},basePath:"../..",book:{language:""}}),function(){var e=location.pathname.split("/")[1];e!=(sessionStorage.getItem("indexTab")||"")&&sessionStorage.setItem("mst",0),~location.pathname.indexOf(".html")||sessionStorage.setItem("mst",0),sessionStorage.setItem("indexTab",e);var t=$(".doc-menu"),s=$(".summary");if(!(t.height()>s.height()&&0!==s.height())){t.scroll(function(){sessionStorage.setItem("mst",t.scrollTop())});var a=sessionStorage.getItem("mst")||0;t.scrollTop(a),$("ul.summary li").each(function(){var e=$(this);10<e.data("level").length&&(e.hasClass("active")?e.parent().parent().attr("class","open chapter cur"):e.parent().parent().siblings().each(function(){var e=$(this);!e.hasClass("cur")&&e.hasClass("open chapter")&&e.attr("class","chapter")}))})}}()</script></body></html>
