@@ -1,5 +1,3 @@
-# 文档编译工具说明
-
 ## 安装编译工具
 使用 gitbook 作为文档编译工具，在使用之前需要安装 node.js、npm 和 gitbook-cli
 
