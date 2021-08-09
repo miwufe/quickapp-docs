@@ -1,0 +1,96 @@
+.doc-content section.normal pre,
+.doc-content section.normal code {
+  /* From https://github.com/isagalaev/highlight.js/blob/9.8.0/src/styles/tomorrow.css */
+  /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+  /* Tomorrow Comment */
+  /* Tomorrow Red */
+  /* Tomorrow Orange */
+  /* Tomorrow Yellow */
+  /* Tomorrow Green */
+  /* Tomorrow Blue */
+  /* Tomorrow Purple */
+}
+.doc-content section.normal pre .hljs-comment,
+.doc-content section.normal code .hljs-comment,
+.doc-content section.normal pre .hljs-quote,
+.doc-content section.normal code .hljs-quote {
+  color: #8e908c;
+}
+.doc-content section.normal pre .hljs-variable,
+.doc-content section.normal code .hljs-variable,
+.doc-content section.normal pre .hljs-template-variable,
+.doc-content section.normal code .hljs-template-variable,
+.doc-content section.normal pre .hljs-tag,
+.doc-content section.normal code .hljs-tag,
+.doc-content section.normal pre .hljs-name,
+.doc-content section.normal code .hljs-name,
+.doc-content section.normal pre .hljs-selector-id,
+.doc-content section.normal code .hljs-selector-id,
+.doc-content section.normal pre .hljs-selector-class,
+.doc-content section.normal code .hljs-selector-class,
+.doc-content section.normal pre .hljs-regexp,
+.doc-content section.normal code .hljs-regexp,
+.doc-content section.normal pre .hljs-deletion,
+.doc-content section.normal code .hljs-deletion {
+  color: #c82829;
+}
+.doc-content section.normal pre .hljs-number,
+.doc-content section.normal code .hljs-number,
+.doc-content section.normal pre .hljs-built_in,
+.doc-content section.normal code .hljs-built_in,
+.doc-content section.normal pre .hljs-builtin-name,
+.doc-content section.normal code .hljs-builtin-name,
+.doc-content section.normal pre .hljs-literal,
+.doc-content section.normal code .hljs-literal,
+.doc-content section.normal pre .hljs-type,
+.doc-content section.normal code .hljs-type,
+.doc-content section.normal pre .hljs-params,
+.doc-content section.normal code .hljs-params,
+.doc-content section.normal pre .hljs-meta,
+.doc-content section.normal code .hljs-meta,
+.doc-content section.normal pre .hljs-link,
+.doc-content section.normal code .hljs-link {
+  color: #f5871f;
+}
+.doc-content section.normal pre .hljs-attribute,
+.doc-content section.normal code .hljs-attribute {
+  color: #eab700;
+}
+.doc-content section.normal pre .hljs-string,
+.doc-content section.normal code .hljs-string,
+.doc-content section.normal pre .hljs-symbol,
+.doc-content section.normal code .hljs-symbol,
+.doc-content section.normal pre .hljs-bullet,
+.doc-content section.normal code .hljs-bullet,
+.doc-content section.normal pre .hljs-addition,
+.doc-content section.normal code .hljs-addition {
+  color: #718c00;
+}
+.doc-content section.normal pre .hljs-title,
+.doc-content section.normal code .hljs-title,
+.doc-content section.normal pre .hljs-section,
+.doc-content section.normal code .hljs-section {
+  color: #4271ae;
+}
+.doc-content section.normal pre .hljs-keyword,
+.doc-content section.normal code .hljs-keyword,
+.doc-content section.normal pre .hljs-selector-tag,
+.doc-content section.normal code .hljs-selector-tag {
+  color: #8959a8;
+}
+.doc-content section.normal pre .hljs,
+.doc-content section.normal code .hljs {
+  display: block;
+  overflow-x: auto;
+  background: white;
+  color: #4d4d4c;
+  padding: 0.5em;
+}
+.doc-content section.normal pre .hljs-emphasis,
+.doc-content section.normal code .hljs-emphasis {
+  font-style: italic;
+}
+.doc-content section.normal pre .hljs-strong,
+.doc-content section.normal code .hljs-strong {
+  font-weight: bold;
+}
