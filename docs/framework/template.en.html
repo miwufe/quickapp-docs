@@ -1,0 +1,121 @@
+<!DOCTYPE HTML><html lang="zh-hans"><head><meta charset="UTF-8"><meta content="text/html; charset=utf-8"http-equiv="Content-Type"><title>Template</title><meta content="IE=edge"http-equiv="X-UA-Compatible"/><meta content="
+  
+"name="description"><meta content="GitBook 3.2.3"name="generator"><meta content="QuickApp.cn"name="author"><link href="../gitbook/style.css"rel="stylesheet"><link href="../gitbook/gitbook-plugin-search-pro/search.css"rel="stylesheet"><link href="../gitbook/gitbook-plugin-highlight-hap/website.css"rel="stylesheet"><link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css"rel="stylesheet"><link href="../styles/website.css"rel="stylesheet"><meta content="no-cache"http-equiv="Pragma"/><meta content="no-cache"http-equiv="Cache-Control"/><meta content="0"http-equiv="Expires"/><meta content="true"name="HandheldFriendly"/><meta content="width=device-width,initial-scale=1,user-scalable=no"name="viewport"><meta content="yes"name="apple-mobile-web-app-capable"><meta content="black"name="apple-mobile-web-app-status-bar-style"><link href="../gitbook/images/apple-touch-icon-precomposed-152.png"rel="apple-touch-icon-precomposed"sizes="152x152"><link href="../gitbook/images/favicon.ico"rel="shortcut icon"type="image/x-icon"><link href="style-sheet.en.html"rel="next"/><link href="source-file.en.html"rel="prev"/><link href="style-sheet.en.html"rel="next"/><link href="source-file.en.html"rel="prev"/></head><body><header class="doc-header"><a href="javascript:;"class="btn doc-menu-toggle"aria-label=""><i class="fa fa-bars"aria-hidden="true"></i></a><div class="doc-logo"><a style="font-size:150%"target="_blank"title="quickapp">QuickApp</a></div><div class="doc-nav"><a href="../">Tutorial</a> <a href="../tools/toolkit-tools.en.html">Tools</a> <a href="index.en.html"class="current">Framework</a> <a href="../widgets/common-events.en.html">Widgets</a> <a href="../features/index.en.html">Features</a></div><div class="doc-search-bar"><div id="book-search-input"><i class="fa fa-search icon-search"aria-hidden="true"></i> <input placeholder="关键字搜索"type="text"></div></div></header><div class="doc-container"><nav class="doc-menu"role="navigation"><ul class="summary"><li class="open chapter"data-level="2.1.1.1"data-path="file-organization.en.html"><a href="file-organization.en.html">File organization</a></li><li class="open chapter"data-level="2.1.1.2"data-path="manifest.en.html"><a href="manifest.en.html">Manifest</a></li><li class="open chapter"data-level="2.1.1.3"data-path="source-file.en.html"><a href="source-file.en.html">Source file</a></li><li class="open open chapter active"data-level="2.1.1.4"data-path="template.en.html"><a href="template.en.html">Template</a></li><li class="open chapter"data-level="2.1.1.5"data-path="style-sheet.en.html"><a href="style-sheet.en.html">Style sheet</a></li><li class="open chapter"data-level="2.1.1.6"data-path="script.en.html"><a href="script.en.html">Script</a></li></ul></nav><div class="doc-content"><div class="doc-content-inner"><div class="page-inner"><div id="book-search-results"><div class="search-noresults"><section class="markdown-section normal"><a href="#template"id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="template"><a href="#template"class="anchor-navigation-ex-anchor"name="template"><i class="fa fa-link"aria-hidden="true"></i></a>Template</h1><p>Tag language similar to HTML. It combines basic components, custom components, and events, builds the structure of a web page.</p><p><strong>Note: You can only have 1 root node in a template (e.g.: div) Don't have multiple root nodes in the<template>and don't use "block" as a root node.</template></strong></p><h2 id="data-binding"><a href="#data-binding"class="anchor-navigation-ex-anchor"name="data-binding"><i class="fa fa-link"aria-hidden="true"></i></a>Data binding</h2><pre><code>&lt;template>
+    &lt;text> {{message}} &lt;/text>
+&lt;/template>
+
+&lt;script>
+  module.exports= {
+    data: {
+      message: 'Hello World!'
+    }
+  }
+&lt;/script>
+</code></pre><h2 id="event-binding"><a href="#event-binding"class="anchor-navigation-ex-anchor"name="event-binding"><i class="fa fa-link"aria-hidden="true"></i></a>Event binding</h2><pre><code>&lt;template>
+    &lt;div>
+        &lt;!-- regular format -->
+        &lt;div onclick="press">&lt;/div>
+        &lt;!-- shortened -->
+        &lt;div @click="press">&lt;/div>
+    &lt;/div>
+&lt;/template>
+
+&lt;script>
+  module.exports= {
+    press: function(e) {
+      this.title = 'Hello'
+    }
+  }
+&lt;/script>
+</code></pre><p>Writing methods supported by event callbacks (the {{}} among it can be omitted):</p><p>"fn": fn is the name of the event's callback (the corresponding function implementation is in the <code>&lt;script></code>).</p><p>“fn(a,b)”: function parameters such as a and b can be constants or variables defined in the data of the <code>&lt;script></code> (don't write "this." in the beginning).</p><p>"a+b": expression, among it a and b data categories are the same as the above.</p><p>When the callback is called, it will automatically add an "evt" parameter at the end of the parameters list, and will access the context data corresponding to the callback event (for specifics on data content, see the component callback event instructions), for example, by clicking the click location x or y of the event.</p><h2 id="list-rendering"><a href="#list-rendering"class="anchor-navigation-ex-anchor"name="list-rendering"><i class="fa fa-link"aria-hidden="true"></i></a>List rendering</h2><pre><code>&lt;template>
+    &lt;div class="doc-page">
+        &lt;div for="{{list}}" tid="uniqueId">
+            &lt;text>{{$idx}}&lt;/text>
+            &lt;text>{{$item.uniqueId}}&lt;/text>
+        &lt;/div>
+    &lt;/div>
+&lt;/template>
+
+&lt;script>
+  module.exports = {
+    data: {
+      list: [{ uniqueId: 1 }, { uniqueId: 2 }]
+    }
+  }
+&lt;/script>
+</code></pre><p>The <code>for</code> command renders the list according to the source data array, the supported writing style is as follows (you can omit the {{}}).</p><ul><li>for="{{list}}": <code>list</code> is the source data array, the default array element name is <code>$item</code>.</li><li>for="{{value in list}}": <code>value</code> is the custom array element name, the default array element index name is <code>$idx</code>.</li><li>for="{{(index, value) in list}}": <code>index</code> is the custom array element index name, the <code>value</code> is the custom array element name.</li></ul><p>The <code>tid</code> attribute of the <code>for</code> command is used to specify the unique ID of the array element. If it is unspecified, the array element (<code>$idx</code>) is used by default as the unique ID. The function of the <code>tid</code> attribute is to place an importance on the element node, and optimizing the redrawing efficiency of the "for" cycle.</p><p>In the example code, tid="uniqueId" means using the array element <code>$item.uniqueId</code> of the array <code>list</code> as the unique ID of the array element.</p><p>When using <code>tid</code> attribute, note that:</p><ul><li>You must have the data attributes specified by the <code>tid</code> attribute, otherwise it may cause it to run abnormally.</li><li>You need to guarantee that the data attributes specified in the <code>tid</code> attribute are unique, otherwise it may cause it to run abnormally.</li></ul><h2 id="conditional-rendering"><a href="#conditional-rendering"class="anchor-navigation-ex-anchor"name="conditional-rendering"><i class="fa fa-link"aria-hidden="true"></i></a>Conditional rendering</h2><p>There are 2 types of conditional rendering: "if/elif/else" and "show". Here's the difference: when 'if' is false, the component will be removed from VDOM, whereas 'show' can't be seen only when rendering, the component will still be in VDOM.</p><p>"if/elif/else" nodes must be neighboring brother nodes, otherwise they can't be processed.</p><pre><code>&lt;template>
+    &lt;div>
+        &lt;text if="{{show}}"> Hello-1 &lt;/text>
+        &lt;text elif="{{display}}"> Hello-2 &lt;/text>
+        &lt;text else> Hello-3 &lt;/text>
+    &lt;/div>
+&lt;/template>
+
+&lt;script>
+  module.exports= {
+    data: {
+      show: false
+    }
+  }
+&lt;/script>
+</code></pre><p>"show" is the same as "visible=none". Currently, it's only used for system native components and doesn't have any effect on custom components. Custom components can import parameters via props and can control whether it is visible by using "show" in its own interior.</p><pre><code>&lt;template>
+    &lt;text show="{{visible}}"> Hello &lt;/text>
+&lt;/template>
+
+&lt;script>
+  module.exports= {
+    data: {
+      visible: false
+    }
+  }
+&lt;/script>
+</code></pre><h2 id="logical-control-block"><a href="#logical-control-block"class="anchor-navigation-ex-anchor"name="logical-control-block"><i class="fa fa-link"aria-hidden="true"></i></a>Logical control block</h2><p>You can use <code>&lt;block></code> to implement even more flexible loop/conditional rendering. Note that <code>&lt;block></code> currently only supports "for" and "if/elif/else" attributes. If no attribute has been specified, <code>&lt;block></code> will be treated as a 'transparent' node when building, its child node will be added on to the parent node of the <code>&lt;block></code>.</p><pre><code>&lt;template>
+    &lt;list>
+        &lt;block for="cities">
+            &lt;list-item type="city">
+                &lt;text>{{$item.name}}&lt;/text>
+            &lt;/list-item>
+            &lt;block for="$item.spots" if="false">
+                &lt;list-item type="spot">
+                    &lt;text>{{$item.address}}&lt;/text>
+                &lt;/list-item>
+            &lt;/block>
+        &lt;/block>
+    &lt;/list>
+&lt;/template>
+
+&lt;script>
+  module.exports= {
+    data: {
+      cities: [
+        {name:"beijing", spots:[{name:"XXX",address:"XXX"},{name:"XXX",address:"XXX"}]},
+        {name:"shanghai", spots:[{name:"XXX",address:"XXX"},{name:"XXX",address:"XXX"}]}
+      ]
+    }
+  }
+&lt;/script>
+</code></pre><h2 id="introducing-custom-components"><a href="#introducing-custom-components"class="anchor-navigation-ex-anchor"name="introducing-custom-components"><i class="fa fa-link"aria-hidden="true"></i></a>Introducing custom components</h2><pre><code>&lt;import name='comp' src='./comp'>&lt;/import>
+&lt;template>
+  &lt;div>
+    &lt;comp prop1='xxxx' onevent1="bindParentVmMethod1" @event-type1="bindParentVmMethod1">&lt;/comp>
+  &lt;/div>
+&lt;/template>
+</code></pre><p>If you haven't set a name attribute, then the SRC file name is used as the component name by default.</p><p>The SRC attribute specifies the location of the component UX file, you can omit the UX file extension.</p><p>Note:</p><ul><li>The component name isn't case sensitive, it will adopt lowercase by default.</li><li>To bind the <code>event1</code> event of the custom child component through <code>(on|@)event1</code> syntax, implement the following parent component method when the event <code>childVm.$emit('event1', { params: 'transmit parameters' })</code> is triggered: <code>bindParentVmMethod1</code>.</li><li>The declaration event name on the tag uses a <code>-</code> link. Don't use <code>camel casing</code> to correlate the response with the method, i.e.: use <code>event-type1</code> to indicate binding <code>eventType1</code> event.</li></ul><h2 id="inserting-custom-components"><a href="#inserting-custom-components"class="anchor-navigation-ex-anchor"name="inserting-custom-components"><i class="fa fa-link"aria-hidden="true"></i></a>Inserting custom components</h2><p>The location to insert the child component is defined by the tag in the component.</p><p>The template of the "com-a" component is defined as:</p><pre><code>&lt;template>
+    &lt;div>
+      &lt;text>header&lt;/text>
+      &lt;slot>&lt;/slot>
+      &lt;text>footer&lt;/text>
+    &lt;div>
+&lt;/template>
+</code></pre><p>Use the "comA" component on the page as defined below:</p><pre><code>&lt;import name="comp-a" src="./comp-a">&lt;/import>
+&lt;template>
+    &lt;com-a>
+      &lt;text>body&lt;/text>
+    &lt;/com-a>
+&lt;/template>
+</code></pre><p>When the page renders, the "comA" component becomes:</p><pre><code>&lt;div>
+  &lt;text>header&lt;/text>
+  &lt;text>body&lt;/text>
+  &lt;text>footer&lt;/text>
+&lt;/div>
+</code></pre></section></div><div class="search-results"><div class="has-results"><h1 class="search-results-title"><span class="search-results-count"></span> 条匹配 "<span class="search-query"></span>" 的结果</h1><ul class="search-results-list"></ul></div><div class="no-results"><h1 class="search-results-title">没有搜索到与 "<span class="search-query"></span>" 相关的内容</h1></div></div></div></div></div><a href="source-file.en.html"class="navigation navigation-prev"aria-label="Previous page: Source file"><i class="fa fa-angle-left"></i> </a><a href="style-sheet.en.html"class="navigation navigation-next"aria-label="Next page: Style sheet"><i class="fa fa-angle-right"></i></a></div></div><script src="../gitbook/gitbook.js"></script><script src="../gitbook/gitbook-plugin-hap-util/plugin.js"></script><script src="../gitbook/gitbook-plugin-nocache/nocache.js"></script><script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script><script src="../gitbook/gitbook-plugin-search-pro/search.js"></script><script>gitbook.page.hasChanged({page:{title:"Template",level:"2.1.1.4",depth:3,next:{title:"Style sheet",level:"2.1.1.5",depth:3,path:"framework/style-sheet.en.md",ref:"framework/style-sheet.en.md",articles:[]},previous:{title:"Source file",level:"2.1.1.3",depth:3,path:"framework/source-file.en.md",ref:"framework/source-file.en.md",articles:[]},dir:"ltr"},config:{plugins:["html-minifier","-sharing","-fontsettings","hap-util","favicon","theme-default","nocache","-lunr","-search","search-pro","-highlight","highlight-hap","anchor-navigation-ex"],styles:{website:"styles/website.css"},pluginsConfig:{favicon:{shortcut:"",bookmark:""},"html-minifier":{customAttrSurround:[],removeScriptTypeAttributes:!1,removeEmptyAttributes:!1,removeRedundantAttributes:!1,removeEmptyElements:!1,sortClassName:!0,caseSensitive:!0,html5:!0,collapseWhitespace:!0,processConditionalComments:!1,quoteCharacter:null,keepClosingSlash:!0,preventAttributesEscaping:!1,minifyURLs:!1,removeAttributeQuotes:!1,decodeEntities:!0,trimCustomFragments:!1,customAttrAssign:[],includeAutoGeneratedTags:!0,collapseInlineTagWhitespace:!1,collapseBooleanAttributes:!0,minifyJS:!0,removeTagWhitespace:!0,preserveLineBreaks:!1,sortAttributes:!0,removeStyleLinkTypeAttributes:!1,removeComments:!0,minifyCSS:!0,processScripts:[],conservativeCollapse:!1,removeOptionalTags:!1,useShortDoctype:!1},"anchor-navigation-ex":{associatedWithSummary:!1,float:{floatIcon:"fa fa-navicon",level1Icon:"",level2Icon:"",level3Icon:"",showLevelIcon:!1},mode:"",multipleH1:!0,pageTop:{level1Icon:"",level2Icon:"",level3Icon:"",showLevelIcon:!1},printLog:!1,showGoTop:!0,showLevel:!1},"hap-util":{},nocache:{},"search-pro":{},"highlight-hap":{},"theme-default":{showLevel:!1,styles:{ebook:"styles/ebook.css",epub:"styles/epub.css",mobi:"styles/mobi.css",pdf:"styles/pdf.css",print:"styles/print.css",website:"styles/website.css"}}},theme:"default",author:"QuickApp.cn",pdf:{pageNumbers:!0,fontSize:12,fontFamily:"Arial",paperSize:"a4",chapterMark:"pagebreak",pageBreaksBefore:"/",margin:{right:62,left:62,top:56,bottom:56}},structure:{langs:"LANGS.md",readme:"README.md",glossary:"GLOSSARY.md",summary:"SUMMARY.md"},variables:{},version:"{{datetime}}",title:"快应用开发文档",language:"zh-hans",gitbook:"3.2.3",description:"快应用的开发文档，供快应用开发者学习和参考"},file:{path:"framework/template.en.md",mtime:"2021-08-05T11:55:40.000Z",type:"markdown"},gitbook:{version:"3.2.3",time:"2021-08-09T01:41:47.255Z"},basePath:"..",book:{language:""}}),function(){var e=location.pathname.split("/")[1];e!=(sessionStorage.getItem("indexTab")||"")&&sessionStorage.setItem("mst",0),~location.pathname.indexOf(".html")||sessionStorage.setItem("mst",0),sessionStorage.setItem("indexTab",e);var t=$(".doc-menu"),s=$(".summary");if(!(t.height()>s.height()&&0!==s.height())){t.scroll(function(){sessionStorage.setItem("mst",t.scrollTop())});var a=sessionStorage.getItem("mst")||0;t.scrollTop(a),$("ul.summary li").each(function(){var e=$(this);10<e.data("level").length&&(e.hasClass("active")?e.parent().parent().attr("class","open chapter cur"):e.parent().parent().siblings().each(function(){var e=$(this);!e.hasClass("cur")&&e.hasClass("open chapter")&&e.attr("class","chapter")}))})}}()</script></body></html>

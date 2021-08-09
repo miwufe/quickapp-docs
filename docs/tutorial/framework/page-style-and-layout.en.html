@@ -1,0 +1,163 @@
+<!DOCTYPE HTML><html lang="zh-hans"><head><meta charset="UTF-8"><meta content="text/html; charset=utf-8"http-equiv="Content-Type"><title>Page style and layout</title><meta content="IE=edge"http-equiv="X-UA-Compatible"/><meta content="
+  
+"name="description"><meta content="GitBook 3.2.3"name="generator"><meta content="QuickApp.cn"name="author"><link href="../../gitbook/style.css"rel="stylesheet"><link href="../../gitbook/gitbook-plugin-search-pro/search.css"rel="stylesheet"><link href="../../gitbook/gitbook-plugin-highlight-hap/website.css"rel="stylesheet"><link href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css"rel="stylesheet"><link href="../../styles/website.css"rel="stylesheet"><meta content="no-cache"http-equiv="Pragma"/><meta content="no-cache"http-equiv="Cache-Control"/><meta content="0"http-equiv="Expires"/><meta content="true"name="HandheldFriendly"/><meta content="width=device-width,initial-scale=1,user-scalable=no"name="viewport"><meta content="yes"name="apple-mobile-web-app-capable"><meta content="black"name="apple-mobile-web-app-status-bar-style"><link href="../../gitbook/images/apple-touch-icon-precomposed-152.png"rel="apple-touch-icon-precomposed"sizes="152x152"><link href="../../gitbook/images/favicon.ico"rel="shortcut icon"type="image/x-icon"><link href="framework-instructions.en.html"rel="next"/><link href="lifecycle.en.html"rel="prev"/><link href="framework-instructions.en.html"rel="next"/><link href="lifecycle.en.html"rel="prev"/></head><body><header class="doc-header"><a href="javascript:;"class="btn doc-menu-toggle"aria-label=""><i class="fa fa-bars"aria-hidden="true"></i></a><div class="doc-logo"><a target="_blank"style="font-size:150%"title="quickapp">QuickApp</a></div><div class="doc-nav"><a href="../../"class="current">Tutorial</a> <a href="../../tools/toolkit-tools.en.html">Tools</a> <a href="../../framework/index.en.html">Framework</a> <a href="../../widgets/common-events.en.html">Widgets</a> <a href="../../features/index.en.html">Features</a></div><div class="doc-search-bar"><div id="book-search-input"><i class="fa fa-search icon-search"aria-hidden="true"></i> <input placeholder="关键字搜索"type="text"></div></div></header><div class="doc-container"><nav class="doc-menu"role="navigation"><ul class="summary"><li class="open chapter"data-level="1.1.1.1"><a href="javascript:;">Get started <span class="icon icon-arrow"></span></a><ul class="articles"><li class="open chapter"data-level="1.1.1.1.1"data-path="../../"><a href="../../">Build environment</a></li><li class="open chapter"data-level="1.1.1.1.2"data-path="../getting-started/the-first-program.en.html"><a href="../getting-started/the-first-program.en.html">The first program</a></li><li class="open chapter"data-level="1.1.1.1.3"data-path="../getting-started/hello-world.en.html"><a href="../getting-started/hello-world.en.html">HelloWorld</a></li><li class="open chapter"data-level="1.1.1.1.4"data-path="../getting-started/development-and-debugging.en.html"><a href="../getting-started/development-and-debugging.en.html">Development and debugging</a></li><li class="open chapter"data-level="1.1.1.1.5"data-path="../getting-started/project-configuration.en.html"><a href="../getting-started/project-configuration.en.html">Project configuration</a></li></ul></li><li class="open open chapter"data-level="1.1.1.2"><a href="javascript:;">Framework <span class="icon icon-arrow"></span></a><ul class="articles"><li class="open chapter"data-level="1.1.1.2.1"data-path="lifecycle.en.html"><a href="lifecycle.en.html">Lifecycle</a></li><li class="open open chapter active"data-level="1.1.1.2.2"data-path="page-style-and-layout.en.html"><a href="page-style-and-layout.en.html">Page style and layout</a></li><li class="open chapter"data-level="1.1.1.2.3"data-path="framework-instructions.en.html"><a href="framework-instructions.en.html">Framework commands</a></li><li class="open chapter"data-level="1.1.1.2.4"data-path="switching-pages-and-passing-parameters.en.html"><a href="switching-pages-and-passing-parameters.en.html">Switching pages and passing parameters</a></li><li class="open chapter"data-level="1.1.1.2.5"data-path="event-monitoring-and-triggering.en.html"><a href="event-monitoring-and-triggering.en.html">Event monitoring and triggering</a></li><li class="open chapter"data-level="1.1.1.2.6"data-path="parent-child-component-communication.en.html"><a href="parent-child-component-communication.en.html">Parent-child component communication</a></li><li class="open chapter"data-level="1.1.1.2.7"data-path="using-async.en.html"><a href="using-async.en.html">Using async</a></li></ul></li><li class="open chapter"data-level="1.1.1.3"data-path="../widgets/index.en.md"><a href="javascript:;">Widgets <span class="icon icon-arrow"></span></a><ul class="articles"><li class="open chapter"data-level="1.1.1.3.1"data-path="../widgets/list-tutorial.en.html"><a href="../widgets/list-tutorial.en.html">List tutorial</a></li></ul></li></ul></nav><div class="doc-content"><div class="doc-content-inner"><div class="page-inner"><div id="book-search-results"><div class="search-noresults"><section class="markdown-section normal"><a href="#page-style-and-layout"id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="page-style-and-layout"><a href="#page-style-and-layout"class="anchor-navigation-ex-anchor"name="page-style-and-layout"><i class="fa fa-link"aria-hidden="true"></i></a>Page style and layout</h1><blockquote><p>Gain familiarity with layout-specific units and component styles, master the Flex layout model, understand how to dynamically modify the style and import a precompiled LESS.</p></blockquote><p>Here's what you'll learn after reading:</p><ul><li>Length units</li><li>Setting styles</li><li>Example of Flex Layout</li><li>Dynamic style modification</li><li>Import a precompiled LESS</li></ul><blockquote><p>You can find the code described in this tutorial here: src/StyleLayout directory</p></blockquote><h2 id="length-units"><a href="#length-units"class="anchor-navigation-ex-anchor"name="length-units"><i class="fa fa-link"aria-hidden="true"></i></a>Length units</h2><p>The framework currently only supports length units <code>px</code> and <code>%</code>. Unlike traditional web pages, <code>px</code> is a unit of reference relative to the <code>base width of the project configuration</code>, and has been adapted for mobile screens, with a similar principle to <code>rem</code></p><p>Developers simply need to confirm the px value for the framework style by referring to the draft design. The conversion formula for the <code>design draft 1px</code> and <code>framework style 1px</code> is as follows:</p><p><code>Design draft 1px / base width of design draft = framework style 1px / base width of the project configuration.</code></p><p><code>Base width of the project configuration</code>: default value of <code>config.designWidth</code> in the project configuration document (<code>&lt;ProjectName>/src/manifest.json</code>) is 750.</p><p>Example:</p><p>If the design draft width is 640px, and the component a has a width of 100px on the design draft, this can be achieved in two different ways:</p><p><strong>Option 1:</strong></p><p>Modify the <code>base width of the project configuration</code>: set the <code>base width of the project configuration</code> to the <code>base width of the design draft</code>, so <code>1px on the framework style</code> is equal to <code>1px on the design draft</code>.</p><ul><li>Set the <code>base width of the project configuration</code>, revise <code>config.designWidth</code> in the project configuration document (<code>&lt;ProjectName>/src/manifest.json</code>):</li></ul><pre><code>{
+  "config": {
+    "designWidth": 640
+  }
+}
+</code></pre><ul><li>Set the corresponding framework style for component a:</li></ul><pre><code>width: 100px;
+</code></pre><p><strong>Option 2:</strong></p><p>Do not modify the <code>base width of the project configuration</code>: if the current <code>base width of the project configuration</code> is set to 750, set the framework style x<code>px</code> of component a, obtaining <code>100 / 640 = x / 750</code> from the conversion formula.</p><ul><li>Set the corresponding framework style for component a:</li></ul><pre><code>width: 117px;
+</code></pre><h2 id="setting-styles"><a href="#setting-styles"class="anchor-navigation-ex-anchor"name="setting-styles"><i class="fa fa-link"aria-hidden="true"></i></a>Setting styles</h2><p>Developers can use <code>inline styles</code>, <code>tag selectors</code>, <code>class selectors</code>, and <code>id selectors</code> to set the style for a component.</p><p>You can also use <code>parallel selection</code> and <code>descendant selectors</code> to set the style as follows:</p><p>Example:</p><pre><code>&lt;template>
+  &lt;div class="tutorial-page">
+    &lt;!-- Inline styles -->
+    &lt;text style="color: #FF0000;">Inline styles&lt;/text>
+
+    &lt;text id="title">ID selector&lt;/text>
+    &lt;text class="title">Class selector&lt;/text>
+    &lt;text>Tag selector&lt;/text>
+  &lt;/div>
+&lt;/template>
+
+&lt;style>
+  .tutorial-page {
+    flex-direction: column;
+  }
+  /* Tag selector */
+  text {
+    color: #0000FF;
+  }
+  /* Class selector (recommended) */
+  .title {
+    color: #00FF00;
+  }
+  /* ID selector */
+  #title {
+    color: #00A000;
+  }
+  /* Parallel selection */
+  .title, #title {
+    font-weight: bold;
+  }
+  /* Descendant selector */
+  .tutorial-page text {
+    font-size: 42px;
+  }
+  /* Direct descendant selector */
+  .tutorial-page > text {
+    text-decoration: underline;
+  }
+&lt;/style>
+
+&lt;script>
+  export default {
+    onInit () {
+      this.$page.setTitleBar({ text: 'Setting styles' })
+    }
+  }
+&lt;/script>
+</code></pre><h2 id="example-of-flex-layout"><a href="#example-of-flex-layout"class="anchor-navigation-ex-anchor"name="example-of-flex-layout"><i class="fa fa-link"aria-hidden="true"></i></a>Example of Flex Layout</h2><p>The <code>Flex layout model</code> is used for the layout of the framework itself. Refer to the following external document for a <code>tutorial on the Flex layout</code>: <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html"target="_blank">Flex layout tutorial</a></p><p>The div component is the most commonly used Flex, with the characteristics of the Flex layout; the text, a, span, label components are the text containers, <strong>other components cannot directly insert text content</strong>.</p><p>Example:</p><pre><code>&lt;template>
+  &lt;div class="tutorial-page">
+    &lt;div class="item">
+      &lt;text>item1&lt;/text>
+    &lt;/div>
+    &lt;div class="item">
+      &lt;text>item2&lt;/text>
+    &lt;/div>
+  &lt;/div>
+&lt;/template>
+
+&lt;style>
+  .tutorial-page {
+    /* Crossed axes centered */
+    align-items: center;
+    /* Vertical arrangement */
+    flex-direction: column;
+  }
+  .tutorial-page > .item {
+    /* Allow to be stretched if there is room left */
+    /*flex-grow: 1;*/
+    /* Don't allow to be stretched if there isn't enough room left */
+    flex-shrink: 0;
+    /* Main axis centered */
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    background-color: #FF0000;
+  }
+&lt;/style>
+
+&lt;script>
+  export default {
+    onInit () {
+      this.$page.setTitleBar({ text: 'Flex layout example' })
+    }
+  }
+&lt;/script>
+</code></pre><h2 id="dynamic-style-modification"><a href="#dynamic-style-modification"class="anchor-navigation-ex-anchor"name="dynamic-style-modification"><i class="fa fa-link"aria-hidden="true"></i></a>Dynamic style modification</h2><p>There are several ways to dynamically modify the style consistent with the traditional front-end development practices, including but not limited to:</p><ul><li><strong>Modify class</strong>: Update the variable in the class attribute of the component</li><li><strong>Modify inline style</strong>: Update the CSS value in the style attribute of a component</li></ul><pre><code>&lt;template>
+  &lt;div style="flex-direction: column;">
+    &lt;!-- Modify class -->
+    &lt;text class="normal-text {{className}}" onclick="changeClassName">Tap here to change the font color&lt;/text>
+    &lt;!-- Modify inline style -->
+    &lt;text style="color: {{textColor}}" onclick="changeInlineStyle">Tap here to change the font color&lt;/text>
+  &lt;/div>
+&lt;/template>
+
+&lt;style>
+  .normal-text {
+    font-weight: bold;
+  }
+  .text-blue {
+    color: #0faeff;
+  }
+  .text-red {
+    color: #f76160;
+  }
+&lt;/style>
+
+&lt;script>
+  export default {
+    data: {
+      className: 'text-blue',
+      textColor: '#0faeff'
+    },
+    onInit () {
+      this.$page.setTitleBar({ text: 'Modify the style dynamically' })
+    },
+    changeClassName () {
+      this.className = 'text-red'
+    },
+    changeInlineStyle () {
+      this.textColor = '#f76160'
+    }
+  }
+&lt;/script>
+</code></pre><h2 id="import-a-precompiled-less"><a href="#import-a-precompiled-less"class="anchor-navigation-ex-anchor"name="import-a-precompiled-less"><i class="fa fa-link"aria-hidden="true"></i></a>Import a precompiled LESS</h2><p>For LESS syntax, please refer to sources such as the book called <a href="http://less.bootcss.com/features/"target="_blank">LESS Language Features</a>.</p><p>To use LESS, please install the appropriate class library: <code>less</code>, <code>less-loader</code>. For details, please refer to the document: <code>style --> precompiled style</code>. Then add the attribute <code>lang="less"</code> to the <code>&lt;style></code> label.</p><p>Example:</p><pre><code>&lt;template>
+  &lt;div class="tutorial-page">
+    &lt;text id="title">"less" example!&lt;/text>
+  &lt;/div>
+&lt;/template>
+
+&lt;style lang="less">
+  /* Introduce "less" file from outside */
+  @import './style.less';
+
+  /* Use "less" */
+  .tutorial-page {
+    justify-content: center;
+    background-color: #00beaf;
+
+    #title {
+      color: #FF0000;
+    }
+  }
+&lt;/style>
+
+&lt;script>
+  export default {
+    onInit () {
+      this.$page.setTitleBar({ text: 'Introduce "less" for precompiling' })
+    }
+  }
+&lt;/script>
+</code></pre><h2 id="summary"><a href="#summary"class="anchor-navigation-ex-anchor"name="summary"><i class="fa fa-link"aria-hidden="true"></i></a>Summary</h2><p>After learning about page styles and layouts, developers can start to design and develop pages.</p></section></div><div class="search-results"><div class="has-results"><h1 class="search-results-title"><span class="search-results-count"></span> 条匹配 "<span class="search-query"></span>" 的结果</h1><ul class="search-results-list"></ul></div><div class="no-results"><h1 class="search-results-title">没有搜索到与 "<span class="search-query"></span>" 相关的内容</h1></div></div></div></div></div><a href="lifecycle.en.html"class="navigation navigation-prev"aria-label="Previous page: Lifecycle"><i class="fa fa-angle-left"></i> </a><a href="framework-instructions.en.html"class="navigation navigation-next"aria-label="Next page: Framework commands"><i class="fa fa-angle-right"></i></a></div></div><script src="../../gitbook/gitbook.js"></script><script src="../../gitbook/gitbook-plugin-hap-util/plugin.js"></script><script src="../../gitbook/gitbook-plugin-nocache/nocache.js"></script><script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script><script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script><script>gitbook.page.hasChanged({page:{title:"Page style and layout",level:"1.1.1.2.2",depth:4,next:{title:"Framework commands",level:"1.1.1.2.3",depth:4,path:"tutorial/framework/framework-instructions.en.md",ref:"tutorial/framework/framework-instructions.en.md",articles:[]},previous:{title:"Lifecycle",level:"1.1.1.2.1",depth:4,path:"tutorial/framework/lifecycle.en.md",ref:"tutorial/framework/lifecycle.en.md",articles:[]},dir:"ltr"},config:{plugins:["html-minifier","-sharing","-fontsettings","hap-util","favicon","theme-default","nocache","-lunr","-search","search-pro","-highlight","highlight-hap","anchor-navigation-ex"],styles:{website:"styles/website.css"},pluginsConfig:{favicon:{shortcut:"",bookmark:""},"html-minifier":{customAttrSurround:[],removeScriptTypeAttributes:!1,removeEmptyAttributes:!1,removeRedundantAttributes:!1,removeEmptyElements:!1,sortClassName:!0,caseSensitive:!0,html5:!0,collapseWhitespace:!0,processConditionalComments:!1,quoteCharacter:null,keepClosingSlash:!0,preventAttributesEscaping:!1,minifyURLs:!1,removeAttributeQuotes:!1,decodeEntities:!0,trimCustomFragments:!1,customAttrAssign:[],includeAutoGeneratedTags:!0,collapseInlineTagWhitespace:!1,collapseBooleanAttributes:!0,minifyJS:!0,removeTagWhitespace:!0,preserveLineBreaks:!1,sortAttributes:!0,removeStyleLinkTypeAttributes:!1,removeComments:!0,minifyCSS:!0,processScripts:[],conservativeCollapse:!1,removeOptionalTags:!1,useShortDoctype:!1},"anchor-navigation-ex":{associatedWithSummary:!1,float:{floatIcon:"fa fa-navicon",level1Icon:"",level2Icon:"",level3Icon:"",showLevelIcon:!1},mode:"",multipleH1:!0,pageTop:{level1Icon:"",level2Icon:"",level3Icon:"",showLevelIcon:!1},printLog:!1,showGoTop:!0,showLevel:!1},"hap-util":{},nocache:{},"search-pro":{},"highlight-hap":{},"theme-default":{showLevel:!1,styles:{ebook:"styles/ebook.css",epub:"styles/epub.css",mobi:"styles/mobi.css",pdf:"styles/pdf.css",print:"styles/print.css",website:"styles/website.css"}}},theme:"default",author:"QuickApp.cn",pdf:{pageNumbers:!0,fontSize:12,fontFamily:"Arial",paperSize:"a4",chapterMark:"pagebreak",pageBreaksBefore:"/",margin:{right:62,left:62,top:56,bottom:56}},structure:{langs:"LANGS.md",readme:"README.md",glossary:"GLOSSARY.md",summary:"SUMMARY.md"},variables:{},version:"{{datetime}}",title:"快应用开发文档",language:"zh-hans",gitbook:"3.2.3",description:"快应用的开发文档，供快应用开发者学习和参考"},file:{path:"tutorial/framework/page-style-and-layout.en.md",mtime:"2020-09-23T10:05:40.000Z",type:"markdown"},gitbook:{version:"3.2.3",time:"2021-08-09T01:41:47.255Z"},basePath:"../..",book:{language:""}}),function(){var e=location.pathname.split("/")[1];e!=(sessionStorage.getItem("indexTab")||"")&&sessionStorage.setItem("mst",0),~location.pathname.indexOf(".html")||sessionStorage.setItem("mst",0),sessionStorage.setItem("indexTab",e);var t=$(".doc-menu"),s=$(".summary");if(!(t.height()>s.height()&&0!==s.height())){t.scroll(function(){sessionStorage.setItem("mst",t.scrollTop())});var a=sessionStorage.getItem("mst")||0;t.scrollTop(a),$("ul.summary li").each(function(){var e=$(this);10<e.data("level").length&&(e.hasClass("active")?e.parent().parent().attr("class","open chapter cur"):e.parent().parent().siblings().each(function(){var e=$(this);!e.hasClass("cur")&&e.hasClass("open chapter")&&e.attr("class","chapter")}))})}}()</script></body></html>
