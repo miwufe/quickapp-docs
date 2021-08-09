@@ -2,35 +2,36 @@
 
 ## Install Node.js
 
-You need to install **6.0** or later versions of Node.js. Download it from the [Node.js official website](https://nodejs.org/en/). We recommend downloading `v6.11.3 LTS`.
+You need to install 8.0 or later versions of Node.js. Download it from the  [Node.js official website](https://nodejs.org/en/). 
 
-Important: Don't use the 8.0* version. The ZipStream implementation within this version is not compatible with the node-archive package, and will lead to an error.
 
-## Install hap-toolkit
-
-You can't install it using the npm package at the moment. Download the latest version manually from [our website](http://dev.hybrid.xiaomi.com/tools/). Unzip the file and install the npm dependent libraries in the root directory and implement the following command:
+## Install aiot-toolkit
 
 ```
-npm install
+npm install aiot-toolkit -g --force 
 ```
 
-Then add `/path/to/your/hap-toolkit/bin` to the system PATH and implement `hap` in the command line. An output message will appear expressing that the `hap-toolkit` has been installed and configured. The command will be shown as follows:
 
 ```
-# Linux
-hap
-
-# Windows
-node /path/to/your/hap-toolkit/bin/hap
-
 # Output as follows:
-Usage: hap <command>
+Usage: aiot <command>
 Args:
     -v:       -- Print version
 Commands:
-    init      -- Initialize project
-    update    -- Update project to newer version
-    debug     -- Start the remote debug server
-    help      -- Print help
+    init [options] <app-name>   create a new project.
+    build [options]             build the project
+    server [options]            open server for project
+    watch [options]             recompile project while file changes
+    release [options]           release the project
+    preview [options] <target>  preview app in your browser
+    update [options]            update tools for project
+    view [options] <rpk-path>   run server to view rpk
+    resign [options]            resign the rpk/rpks packages
+    packages [options]          generate the rpk packages
+    installdbg [options]        install "org.hapjs.debugger"
+    installmkp [options]        install "org.hapjs.mockup"
+    runapp [options]            run app on multiple devices
+    installrun [options]        install quickapp background and run
+    getPlatforms [options]      get available platform(s) on selected device
+    getConnectedDevices         get all connected devices
 ```
-

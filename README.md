@@ -18,4 +18,4 @@ gitbook-cli 安装方法：
     进入build/middle/_book， 执行 npx http-server 即可
 
 ## 部署：
-    编译文档后，会在docs/目录下生成文件，将该文件上传的到web服务器，解压到任意目录可以使用
+    编译文档后，会在docs/目录下生成文件，将该文件上传的到web服务器即可

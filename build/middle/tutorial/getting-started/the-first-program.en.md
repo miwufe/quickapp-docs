@@ -2,16 +2,9 @@
 
 1 Run the following command under any directory to establish the program template.
 
-Linux
 
 ```
-hap init <ProjectName>
-```
-
-Windows
-
-```
-node /path/to/your/hap-toolkit/bin/hap init <ProjectName>
+aiot init <ProjectName>
 ```
 
 2 Enter the root directory of the project and run the following command to install the dependency packages.

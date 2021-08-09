@@ -88,8 +88,6 @@ Note:
 
 If you encounter **xxx cannot be cast to xxx at ...list** error similar to the figure below:
 
-![img](list.0.png)
-
 please check the `list-item component` for the following conditions:
 
 - The `type attribute` is not set. Solution: Set the `type attribute`.
@@ -109,8 +107,6 @@ the elements in the list can clearly be divided into three categories. We set th
 - Load more `list-item`, the custom name for the `type` attribute is `loadMore`
 
 After analyzing the categories of list element, as in the structure chart shown in the bottom right:
-
-![img](list.1.png) ![img](list.2.png)
 
 Code is as follows (see the tutorial document with the corresponding project code):
 
@@ -183,8 +179,6 @@ From a business perspective, products can clearly by divided into `new product l
 
 However, when the list is very complex, the middle structure chart divided by business division will still be unresponsive. **It is recommended** to set aside business logic, and divide the list into list elements that are as small as possible. The structure is divided as shown in bottom right figure.
 
-![img](list.3.png) ![img](list.4.png) ![img](list.5.png)
-
 The recommended (upper right) DOM structure code is as follows (see the tutorial document with the corresponding project code):
 
 ```
@@ -237,7 +231,6 @@ Developers will generally divide the page into banner and list, then turn on the
 
 However, turning on `scrollpage` will reduce the `list` rendering performance. **It is recommended** to set the banner as a special `type` attribute `list-item`, and move it into the `list`, while turning off `scrollpage`, as shown in the bottom left figure.
 
-![img](list.6.png) ![img](list.7.png) ![img](list.8.png)
 
 The recommended (upper right) DOM structure code is as follows (see the tutorial document with the corresponding project code):
 
