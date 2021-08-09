@@ -19,3 +19,15 @@ gitbook-cli 安装方法：
 
 ## 部署：
     编译文档后，会在docs/目录下生成文件，将该文件上传的到web服务器即可
+
+
+### 报错 
+```
+/usr/local/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/graceful-fs/polyfills.js:287
+      if (cb) cb.apply(this, arguments)
+
+      //注释改文件的 62 至 64行
+        // fs.stat = statFix(fs.stat)
+        // fs.fstat = statFix(fs.fstat)
+        // fs.lstat = statFix(fs.lstat)
+```
