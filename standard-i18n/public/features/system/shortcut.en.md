@@ -1,4 +1,4 @@
-# Home screen icons `101+`
+# Home screen icons
 
 ## Interface declaration
 
@@ -34,7 +34,7 @@ shortcut.hasInstalled({
 });
 ```
 
-### shortcut.install(OBJECT)
+<!-- ### shortcut.install(OBJECT)
 
 Create Home screen icons
 
@@ -58,4 +58,4 @@ Create Home screen icons
 shortcut.install({
   success:function(){console.log("handling success");}
 });
-```
+``` -->

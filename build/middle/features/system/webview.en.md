@@ -12,7 +12,7 @@
 import webview from '@system.webview' or var webview = require("@system.webview")
 ```
 
-## Interface definition
+<!-- ## Interface definition
 
 ### webview.loadUrl(OBJECT)
 
@@ -30,7 +30,7 @@ Open web page, the title bar style is the same as the style of the title bar of 
 webview.loadUrl({
   url:'http://www.example.com'
 })
-```
+``` -->
 
 ## WebView internal API
 

@@ -1,4 +1,4 @@
-# Push `101+`
+# Push
 
 ## Interface declaration
 
@@ -14,7 +14,34 @@ import push from '@service.push' or var push = require("@service.push")
 
 ## Interface definition
 
-### push.subscribe(OBJECT)
+### push.getProvider(OBJECT)
+
+Get the provider of push service.
+
+#### Parameters:
+
+| Parameter name | Type     | Required | Description                              |
+| -------------- | -------- | -------- | ---------------------------------------- |
+| success        | Function | No       | Callback succeeded, returns the name of provider.   |
+| fail           | Function | No       | Couldn't return callback, reason it couldn't return |
+| complete       | Function | No       | The callback returned after the implementation finished |
+
+#### Example:
+
+```
+push.getProvider({
+  success: function(data) {
+    console.log("push.subscribe succeeded, result data=" + JSON.stringify(data));
+  },
+  fail: function(data, code) {
+    console.log("push.subscribe failed, result data=" + JSON.stringify(data) + ", code=" + code);
+  },
+  complete: function() {
+    console.log("push.subscribe completed");
+  }
+});
+```
+<!-- ### push.subscribe(OBJECT)
 
 Subscribe to push to receive push messages (generally it can be called where the app is initialized, e.g., call in the app's onCreate method)
 
@@ -109,7 +136,7 @@ None
 
 ```
 push.off();
-```
+``` -->
 
 ## Sending messages
 

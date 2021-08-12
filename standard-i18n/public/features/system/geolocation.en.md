@@ -53,7 +53,7 @@ geolocation.getLocation({
 })
 ```
 
-### geolocation.subscribe(OBJECT)
+<!-- ### geolocation.subscribe(OBJECT)
 
 Monitor geolocation. If called multiple times, it will only take effect the last time
 
@@ -102,4 +102,4 @@ None
 
 ```
 geolocation.unsubscribe()
-```
+``` -->

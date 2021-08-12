@@ -24,13 +24,15 @@ None
 
 | Parameter name | Type    | Description        |
 | -------------- | ------- | ------------------ |
+| packageName    | String  | App package name   |
+| icon           | String  | File path of app's icon   |
 | name           | String  | App name           |
 | versionName    | String  | App version name   |
 | versionCode    | Integer | App version number |
 | logLevel       | String  | Log level          |
-| source `101+`  | Object  | App source         |
+| source         | Object  | App source         |
 
-##### source `101+`
+##### source
 
 | Parameter name | Type   | Description                              |
 | -------------- | ------ | ---------------------------------------- |

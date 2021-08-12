@@ -33,7 +33,7 @@ prompt.showToast({
 })
 ```
 
-### prompt.showDialog(OBJECT)
+<!-- ### prompt.showDialog(OBJECT)
 
 Show dialog box
 
@@ -114,4 +114,4 @@ prompt.showContextMenu({
     console.log("handling fail, code=" + code);
   }
 })
-```
+``` -->

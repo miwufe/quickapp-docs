@@ -211,3 +211,270 @@ file.delete({
   }
 })
 ```
+
+### file.writeText(OBJECT)
+
+Write text to file
+
+#### Parameters.
+
+| Parameter name| Types| Required| Description
+|----------|----------|----------|----------
+| uri| String| Yes| Local file paths, resource file paths and tmp partitions are not supported, files will be created if they do not exist
+| text| String| Yes| String to be written
+| encoding| String| No| Encoding format, default UTF-8
+| append | Boolean| No| Append mode or not, default false
+| success| Function| No| Successful callback
+| fail| Function| No| Failure to callback
+| complete| Function| No| Callback at the end of execution
+
+##### fail returns the error code.
+
+| Error code| Description
+|----------|----------
+| 202| Parameter error
+| 300| I/O errors
+
+#### Example:
+
+```javascript
+file.writeText({
+  uri: 'internal://files/work/demo.txt',
+  text: 'test',
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
+```
+
+### file.writeArrayBuffer(OBJECT)
+
+Write Buffer to File
+
+#### Parameters.
+
+| Parameter name| Types| Required| Description
+|----------|----------|----------|----------
+| uri| String| Yes| Local file paths, resource file paths and tmp partitions are not supported, files will be created if they do not exist
+| buffer| Uint8Array| Yes| Buffer to be written
+| position| Number| No| Offset pointing to the location where the file starts writing data, default 0
+| append | Boolean| No| Whether it is append mode, default false. When true, the position parameter is invalid
+| success| Function| No| Successful callback
+| fail| Function| No| Failure to callback
+| complete| Function| No| Callback at the end of execution
+
+##### fail returns the error code.
+
+| Error code| Description
+|----------|----------
+| 202| Parameter error
+| 300| I/O errors
+
+#### Example:
+
+```javascript
+file.writeArrayBuffer({
+  uri: 'internal://files/work/demo',
+  buffer: buffer,
+  success: function() {
+    console.log('handling success')
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
+```
+
+### file.readText(OBJECT)
+
+Reading text from a file
+
+#### Parameters.
+
+| Parameter name| Types| Required| Description
+|----------|----------|----------|----------
+| uri| String| Yes| Local file path
+| encoding| String| No| Encoding format, default UTF-8
+| success| Function| No| Successful callback
+| fail| Function| No| Failure to callback
+| complete| Function| No| Callback at the end of execution
+
+##### success Return value:
+
+| Parameter name| Types| Description
+|----------|----------|----------
+| text| String| Text to be read
+
+##### fail returns the error code.
+
+| Error code| Description
+|----------|----------
+| 202| Parameter error
+| 300| I/O errors
+| 301| File does not exist
+
+#### Example:
+
+```javascript
+file.readText({
+  uri: 'internal://files/work/demo.txt',
+  success: function(data) {
+    console.log('text: ' + data.text)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
+```
+
+### file.readArrayBuffer(OBJECT)
+
+Read Buffer from file
+
+#### Parameters.
+
+| Parameter name| Types| Required| Description
+|----------|----------|----------|----------
+| uri| String| Yes| Local file path
+| position| Number| No| The default value is the starting position of the file to be read
+| length| Number| No| The length of the read, or the end of the file is read if not filled in
+| success| Function| No| Successful callback
+| fail| Function| No| Failure to callback
+| complete| Function| No| Callback at the end of execution
+
+##### success Return value:
+
+| Parameter name| Types| Description
+|----------|----------|----------
+| buffer| Uint8Array| Contents of the file to be read
+
+##### fail returns the error code.
+
+| Error code| Description
+|----------|----------
+| 202| Parameter error
+| 300| I/O errors
+| 301| File does not exist
+
+#### Example:
+
+```javascript
+file.readArrayBuffer({
+  uri: 'internal://files/work/demo',
+  position: 100,
+  length: 100,
+  success: function(data) {
+    console.log('buffer.length: ' + data.buffer.length)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
+```
+
+### file.access(OBJECT)
+
+Determine if a file or directory exists
+
+#### Parameters.
+
+| Parameter name| Types| Required| Description
+|----------|----------|----------|----------
+| uri| String| Yes| Directory or file uri, cannot be an application resource path and tmp type uri. Support for application resource paths
+| success| Function| No| Successful callback
+| fail| Function| No| Failure to callback
+| complete| Function| No| Callback at the end of execution
+
+##### fail returns the error code.
+
+| Error code| Description
+|----------|----------
+| 202| Parameter error
+| 300| I/O errors
+
+#### Example:
+
+```javascript
+file.access({
+  uri: 'internal://files/test',
+  success: function(data) {
+    console.log(`handling success`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
+```
+
+### file.mkdir(OBJECT)
+
+Create a directory
+
+#### Parameters.
+
+| Parameter name| Types| Required| Description
+|----------|----------|----------|----------
+| uri| String| Yes| directory uri, not uri of application resource paths and type tmp
+| recursive| Boolean| No| Whether to recursively create the directory after creating the directory's parent directory. Default false
+| success| Function| No| Successful callback
+| fail| Function| No| Failure to callback
+| complete| Function| No| Callback at the end of execution
+
+##### fail returns the error code.
+
+| Error code| Description
+|----------|----------
+| 202| Parameter error
+| 300| I/O errors
+
+#### Example:
+
+```javascript
+file.mkdir({
+  uri: 'internal://files/dir/',
+  success: function(data) {
+    console.log(`handling success`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
+```
+
+### file.rmdir(OBJECT)
+
+Delete Directory
+
+#### Parameters.
+
+| Parameter name| Types| Required| Description
+|----------|----------|----------|----------
+| uri| String| Yes| directory uri, not uri of application resource paths and type tmp
+| recursive| Boolean| No| Whether to recursively delete subfiles and subdirectories. Default false
+| success| Function| No| Successful callback
+| fail| Function| No| Failure to callback
+| complete| Function| No| Callback at the end of execution
+
+##### fail returns the error code.
+
+| Error code| Description
+|----------|----------
+| 202| Parameter error
+| 300| I/O errors
+
+#### Example:
+
+```javascript
+file.rmdir({
+  uri: 'internal://files/dir/',
+  success: function(data) {
+    console.log(`handling success`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
+  }
+})
+```
