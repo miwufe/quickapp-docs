@@ -94,7 +94,7 @@ storage.clear({
 })
 ```
 
-### storage.delete(OBJECT) `101+`
+### storage.delete(OBJECT)
 
 Delete stored content
 
@@ -115,6 +115,37 @@ storage.delete({
   success:function(data){console.log("handling success");},
   fail: function(data, code) {
     console.log("handling fail, code=" + code);
+  }
+})
+```
+
+#### storage.keys(OBJECT)
+
+Returns the key names in the store
+
+##### Parameters.
+
+| Parameter name| Types| Required| Description
+|----------|----------|----------|----------
+| success| Function| No| Successful callback
+| fail| Function| No| Failure to callback
+| complete| Function| No| Callback at the end of execution
+
+##### success Return value:
+
+| Parameter name   | Type  | Description  |
+| -------- | ----- | -------------------------------------- |
+| data | Array<string> | An array of key names in the store |
+
+##### Example:
+
+```javascript
+storage.keys({
+  success: function(data) {
+    console.log(`handling success, keys = ${JSON.stringify(data)}`)
+  },
+  fail: function(data, code) {
+    console.log(`handling fail, code = ${code}`)
   }
 })
 ```

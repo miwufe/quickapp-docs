@@ -70,33 +70,28 @@
             * [Log printing](features/system/log.en.md)
             * [Page routing](features/system/router.en.md)
         * Interface interaction
-            * [Sharing](features/system/share.en.md)
+            <!-- * [Sharing](features/system/share.en.md) -->
             * [Pop-up window](features/system/prompt.en.md)
             * [Open web page](features/system/webview.en.md)
-            * [Notification message](features/system/notification.en.md)
-            * [Vibrate](features/system/vibrator.en.md)
+            <!-- * [Notification message](features/system/notification.en.md) -->
+            <!-- * [Vibrate](features/system/vibrator.en.md) -->
         * Network access
-            * [Uploading and downloading](features/system/request.en.md)
+            <!-- * [Uploading and downloading](features/system/request.en.md) -->
             * [Data request](features/system/fetch.en.md)
         * File data
             * [Data storage](features/system/storage.en.md)
             * [File storage](features/system/file.en.md)
         * System capabilities
-            * [QR codes](features/system/barcode.en.md)
-            * [Sensors](features/system/sensor.en.md)
-            * [Clipboard](features/system/clipboard.en.md)
+            <!-- * [QR codes](features/system/barcode.en.md) -->
+            <!-- * [Sensors](features/system/sensor.en.md) -->
+            <!-- * [Clipboard](features/system/clipboard.en.md) -->
             * [Geographical location](features/system/geolocation.en.md)
             * [Home screen icons](features/system/shortcut.en.md)
-            * [Calendar events](features/system/calendar.en.md)
+            <!-- * [Calendar events](features/system/calendar.en.md) -->
             * [Network status](features/system/network.en.md)
             * [Device information](features/system/device.en.md)
         * Graphics
             * [Multimedia](features/system/media.en.md)
         * Vendor services
             * [Push](features/service/push.en.md)
-            * [Payments](features/service/pay.en.md)
-        * Third-party services
-            * [WeChat Pay](features/service/wxpay.en.md)
-            * [Alipay](features/service/alipay.en.md)
-            * [Sharing to a third party platform](features/service/share.en.md)
------
+            <!-- * [Payments](features/service/pay.en.md) -->

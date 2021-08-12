@@ -52,7 +52,7 @@ device.getInfo({
 })
 ```
 
-### device.getId(OBJECT)
+<!-- ### device.getId(OBJECT)
 
 Get device ID
 
@@ -91,4 +91,4 @@ device.getId({
     console.log("handling fail, code=" + code);
   }
 })
-```
+``` -->

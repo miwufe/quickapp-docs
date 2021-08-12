@@ -14,7 +14,7 @@ import media from '@system.media' or var media = require("@system.media")
 
 ## Interface definition
 
-### media.takePhoto(OBJECT)
+<!-- ### media.takePhoto(OBJECT)
 
 Take a photo
 
@@ -137,5 +137,29 @@ media.pickVideo({
   fail: function(data, code) {
     console.log("handling fail, code=" + code);
   }
+})
+``` -->
+
+### media.playRingtone(OBJECT)
+
+Play system background sound.
+
+#### Parameters:
+
+| Parameter name | Type     | Required | Description                              |
+| -------------- | -------- | -------- | ---------------------------------------- |
+| type           | String   | No       | It should be `navigation` currently.                    |
+| scene          | String   | Yes       | The scene that the sound should be played at. It can be `normal` or `boundary`.               |
+
+##### Return value:
+
+No return value.
+
+#### Example:
+
+```
+media.playRingtone({
+  type: 'navigation',
+  scene: 'boundary'
 })
 ```

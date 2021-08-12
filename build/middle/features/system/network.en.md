@@ -30,7 +30,6 @@ Get network type
 
 | Parameter name | Type    | Description                              |
 | -------------- | ------- | ---------------------------------------- |
-| metered        | Boolean | Whether it's billed according to the data plan |
 | type           | String  | Network type, possible values are 2G, 3G, 4G, Wi-Fi, none |
 
 #### Example:
