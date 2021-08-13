@@ -10,11 +10,11 @@ Supported
 
 ## Attribute
 
-Supports [common attributes](common-attributes.md)
+Supports [common attributes](common-attributes.en.md)
 
 ## Style
 
-Supports [common styles](common-styles.md)
+Supports [common styles](common-styles.en.md)
 
 | Name            | Type                                     | Default value | Required | Description |
 | --------------- | ---------------------------------------- | ------------- | -------- | ----------- |
@@ -26,4 +26,4 @@ Supports [common styles](common-styles.md)
 
 ## Events
 
-Supports [common events](common-events.md)
+Supports [common events](common-events.en.md)

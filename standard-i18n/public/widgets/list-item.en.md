@@ -2,7 +2,7 @@
 
 ## Overview
 
-The child component of [`<list> `](list.md) is used to show a specific item in the list, the width fills the list component by default.
+The child component of [`<list> `](list.en.md) is used to show a specific item in the list, the width fills the list component by default.
 
 ## Child component
 
@@ -10,7 +10,7 @@ Supported
 
 ## Attribute
 
-Supports [common attributes](common-attributes.md)
+Supports [common attributes](common-attributes.en.md)
 
 | Name | Type       | Default value | Required | Description                              |
 | ---- | ---------- | ------------- | -------- | ---------------------------------------- |
@@ -18,14 +18,14 @@ Supports [common attributes](common-attributes.md)
 
 ## Style
 
-Supports [` <div> style`](div.md)
+Supports [` <div> style`](div.en.md)
 
-Doesn't support the position style, supports [common styles](common-styles.md)
-
+Doesn't support the position style, supports [common styles](common-styles.en.md)
+<!-- 
 | Name               | Type       | Default value | Required | Description                              |
 | ------------------ | ---------- | ------------- | -------- | ---------------------------------------- |
-| column-span `101+` | `<number>` | 1             | No       | The column number that the list-item takes up in the list, generally used to display multiple columns in a list |
+| column-span `101+` | `<number>` | 1             | No       | The column number that the list-item takes up in the list, generally used to display multiple columns in a list | -->
 
 ## Events
 
-Supports [common events](common-events.md)
+Supports [common events](common-events.en.md)
