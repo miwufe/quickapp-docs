@@ -4,7 +4,7 @@
 
 Here's what you'll learn after reading:
 
-- Web page lifecycle: `onInit`, `onReady`, `onShow`, `onHide`, `onDestroy`, `onBackPress`, `onMenuPress`
+- Web page lifecycle: `onInit`, `onReady`, `onShow`, `onHide`, `onDestroy`, `onBackPress`, `onMenuPress`, `onKey`
 - Page status: `Displayed`, `Hidden`, `Destroyed`
 - App lifecycle: `onCreate`, `onDestroy`
 
@@ -126,6 +126,18 @@ onMenuPress () {
   this.lcList.push('onMenuPress')
 
   console.info(`Trigger: onMenuPress`)
+}
+```
+
+#### onKey()
+
+When one key of the control board or keyboard is pressed, this hook method will be triggered.
+
+```
+onKey (event) {
+  console.log('key pressed!' + event);
+  // return false // default behavior
+  // return true // means the default behavior will be cancelled, developer need to deal with the keycode.
 }
 ```
 

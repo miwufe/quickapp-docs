@@ -10,14 +10,14 @@ Supported
 
 ## Attribute
 
-Supports [common attributes](common-attributes.md)
+Supports [common attributes](common-attributes.en.md)
 
 ## Style
 
-Supports [div styles](div.html)
+Supports [div styles](div.en.md)
 
-Supports [common styles](common-styles.md)
+Supports [common styles](common-styles.en.md)
 
 ## Events
 
-Supports [common events](common-events.md)
+Supports [common events](common-events.en.md)

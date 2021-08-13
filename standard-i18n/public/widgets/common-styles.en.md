@@ -16,7 +16,7 @@
 | border-[left&#124;top&#124;right&#124;bottom]-color  | `<color>`                 | black         |                                          |
 | border-radius                            | `<length>`                | 0             | When there are rounded corners, only use border width, when the border-[left&#124;top&#124;right&#124;bottom]-width doesn't have valid rounded corners, only use border-color, border-[left&#124;top&#124;right&#124;bottom]-color isn't valid |
 | border-[top&#124;bottom]-[left&#124;right]-radius | `<length>`                | 0             |                                          |
-| background `101+`                        | `<linear-gradient>`       | -             | Supports [gradient style](gradient-styles.md), temporarily can't be used alongside background-color and background-image |
+| background                               | `<linear-gradient>`       | -             | Supports [gradient style](gradient-styles.en.md), temporarily can't be used alongside background-color and background-image |
 | background-color                         | `<color>`                 | -             |                                          |
 | background-image                         | `<uri>`                   | -             | Temporarily isn't supported to be used alongside background-color and border-color; doesn't support online image resources, use local image resources |
 | opacity                                  | `<number>`                | 0xff          |                                          |

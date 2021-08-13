@@ -40,30 +40,31 @@
             * [div](widgets/div.en.md)
             * [list](widgets/list.en.md)
             * [list-item](widgets/list-item.en.md)
-            * [refresh](widgets/refresh.en.md)
-            * [richtext](widgets/richtext.en.md)
+            <!-- * [refresh](widgets/refresh.en.md) -->
+            <!-- * [richtext](widgets/richtext.en.md) -->
             * [stack](widgets/stack.en.md)
             * [swiper](widgets/swiper.en.md)
             * [tabs](widgets/tabs.en.md)
             * [tab-bar](widgets/tab-bar.en.md)
             * [tab-content](widgets/tab-content.en.md)
         * Base widgets
-            * [a](widgets/a.en.md)
+            <!-- * [a](widgets/a.en.md) -->
             * [image](widgets/image.en.md)
             * [progress](widgets/progress.en.md)
             * [span](widgets/span.en.md)
             * [text](widgets/text.en.md)
+            * [marquee](widgets/marquee.en.md)
         * Form widgets
             * [input](widgets/input.en.md)
             * [label](widgets/label.en.md)
-            * [picker](widgets/picker.en.md)
+            <!-- * [picker](widgets/picker.en.md) -->
             * [slider](widgets/slider.en.md)
             * [switch](widgets/switch.en.md)
-            * [textarea](widgets/textarea.en.md)
+            <!-- * [textarea](widgets/textarea.en.md) -->
         * Media widgets
             * [video](widgets/video.en.md)
-        * Other widgets
-            * [web](widgets/web.en.md)
+        <!-- * Other widgets
+            * [web](widgets/web.en.md) -->
     * [Features](features/index.en.md)
         * Basic functions
             * [App context](features/system/app.en.md)
