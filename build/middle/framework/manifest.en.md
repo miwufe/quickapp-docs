@@ -45,9 +45,9 @@ Used to define single web page router information.
 | ------------- | ------ | ------------- | -------- | ---------------------------------------- |
 | component     | String | -             | Yes      | The component name corresponding to the web page, must be consistent with the UX file name, e.g. 'hello.ux' corresponds to 'hello' |
 | path          | String | /<页面名称>       | No       | Web page route, e.g. "/user", if you don't fill it in the default will be <web page name>. The path must be unique, it can't be the same as other web page paths.As the the below path is missing, it will be set as "/Index": `"Index": {"component": "index"}` |
-| filter `101+` | Object | -             | No       | Declare that the web page can process a request |
+| filter | Object | -             | No       | Declare that the web page can process a request |
 
-#### router.page.filter `101+`
+#### router.page.filter
 
 Declare that a web page can process some request, the web page can be obtained from $page and opening the web page parameters, view [script](script.md). The filter structure is as follows:
 
@@ -86,7 +86,7 @@ Used to define configuration related to the UI display
 | titleBarBackgroundColor | String  | -             | Title bar background color               |
 | titleBarTextColor       | String  | -             | Title bar text color                     |
 | titleBarText            | String  | -             | Title bar text (you can also skip and transmit the parameter (titleBarText) settings through the web page) |
-| menu `101+`             | Boolean | false         | Whether the menu button is displayed in the top right-hand corner of the title bar |
+| menu                    | Boolean | false         | Whether the menu button is displayed in the top right-hand corner of the title bar |
 | pages                   | Object  | -             | Display style of each web page, the key is the web page name (consistent with the web page name in the router) |
 
 ### Example:

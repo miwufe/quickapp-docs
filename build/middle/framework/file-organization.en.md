@@ -2,7 +2,7 @@
 
 ## App resources
 
-An app contains: a [manifest](manifest.md) that describes the project configuration, an [app.ux](source-file.md) file that places the project's public source script, multiple [UX files](source-file.md) that describe the web page/custom components. The following is a typical example:
+An app contains: a [manifest](manifest.en.md) that describes the project configuration, an [app.ux](source-file.en.md) file that places the project's public source script, multiple [UX files](source-file.en.md) that describe the web page/custom components. The following is a typical example:
 
 App root directory
 
@@ -34,7 +34,7 @@ Moreover, app resources are processed as a special read-only partition.
 
 ## URI
 
-URIs are used to indicate app resources and files. [Widgets](../widgets/common-events.md) and [features](../features/index.md) access the app resources and files via the URI.
+URIs are used to indicate app resources and files. [Widgets](../widgets/common-events.en.md) and [features](../features/index.en.md) access the app resources and files via the URI.
 
 | Resource type | URI                   | Read-only | Example                           | Description             |
 | ------------- | --------------------- | --------- | --------------------------------- | ----------------------- |

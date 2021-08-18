@@ -40,41 +40,30 @@ console.error('error')
 
 Open the running platform. You'll see the `Show logs` button in the lower right corner. Tap it to view logs. You can also use the `Android Monitor` output of `Android Studio` to view logs.
 
+## Run your app
+
+With the Quick App Debugger turned on, enter the mina-app code directory on the computer and execute the command: npm runapp --watch. 
+
+```shell
+npm runapp --watch
+```
+
+![img](development.1.png)
+
+Select or fill in the IP that needs to be deployed in the output content. Quick App Debugger will automatically open the page, if it fails, click UPDARE ONLINE in Quick App Debugger, and you can see the following interface:
+
+![img](development.2.png)
+
 ## Remote debugging
 
-You can open the `Debugging page` in Chrome to debug the app on your phone.
+Click the back button on the remote control to return to the home page of Quick App Debugger,Click START DEBUGGING in the lower right corner
 
-Here are the steps:
+![img](development.3.png)
 
-- Run the following command in the root directory, start the HTTP debug server, and provide debug page requests:
+The Chrome browser on your computer will automatically open the following page
 
-```
-npm run debug
-```
+![img](development.4.png)
 
-- Open `http://localhost:8081` in your browser, and you'll see the QR code.
-- `Go to app platform --> Menu --> tap "Settings" --> tap "Scan the QR code"`. After scanning, the browser will show this link: `Enter the debugging page`.
-- Click this link to enter the debugging page.
-
-Note:
-
-If the version of node you're using is 8.x.x, you'll have to do the following: after running the `aiot update --force` for the first time, delete the package-lock.json file, run `npm install` and `aiot update --force` once; after that, start the debug server by `npm run debug`.
-
-## Debug browser rendering
-
-The page effects that developers will see in the app platform are rendered by `Native`, and not by `WebView`. Browser rendering debugging refers to the rendering that is done by the `Browser's WebKit engine`. Whenever a rendering effect is inconsistent with `Native`, `Native` should prevail.
-
-Run the following command in the project's root directory:
-
-```
-# Default port: 8080 
-npm run test:h5
-```
-
-Go to `http://localhost:8080/webpack-dev-server` in Chrome. You'll see the structure similar to the "src" folder. Each ux file here corresponds to an HTML file.
+You'll see the structure similar to the "src" folder. Each ux file here corresponds to an HTML file.
 
 Click on the HTML file to debug it. You can preview the page rendered by the browser. The debugging method is the same as that for the regular web pages.
-
-## Summary
-
-So far you've learned how projects are debugged and run. In the next chapters, we'll describe more details. You can skip the sections you're already familiar with and focus on the information you need most in your work.

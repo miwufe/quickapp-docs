@@ -1,6 +1,6 @@
 # Source file
 
-App, the web page, and the custom components are compiled through the UX file. The UX file is composed of the [template](template.md), [style sheet](style-sheet.md), and [script](script.md). The following is a typical example of a UX file:
+App, the web page, and the custom components are compiled through the UX file. The UX file is composed of the [template](template.en.md), [style sheet](style-sheet.en.md), and [script](script.en.md). The following is a typical example of a UX file:
 
 ```
 <template>

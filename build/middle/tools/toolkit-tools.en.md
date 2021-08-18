@@ -7,7 +7,8 @@ In order to facilitate the development, aiot-toolkit is provided to help develop
 Used to create a project template
 
 ```
-aiot init <ProjectName>
+aiot init <ProjectName> -d <DeviceType>
+e.g. aiot init my-project -d tv
 ```
 
 
