@@ -1,10 +1,12 @@
 * Guide
     * Tutorial
         * Get started
-            * [Build environment](README.md)
-            * [The first program](tutorial/getting-started/the-first-program.en.md)
-            * [HelloWorld](tutorial/getting-started/hello-world.en.md)
+            * [Overview](README.md)
+            * [Build environment](tutorial/getting-started/build-environment.en.md)
+            * [Creating and building](tutorial/getting-started/creating-and-building.en.md)
             * [Development and debugging](tutorial/getting-started/development-and-debugging.en.md)
+            * [Installing on device](tutorial/getting-started/installing.en.md)
+            * [Releasing](tutorial/getting-started/releasing.en.md)
             * [Project configuration](tutorial/getting-started/project-configuration.en.md)
         * Framework
             * [Lifecycle](tutorial/framework/lifecycle.en.md)
@@ -16,10 +18,6 @@
             * [Using async](tutorial/framework/using-async.en.md)
         * [Widgets](tutorial/widgets/index.en.md)
             * [List tutorial](tutorial/widgets/list-tutorial.en.md)
-    * Tools
-        * [Toolkit tools](tools/toolkit-tools.en.md)
-        * [Compiling tools](tools/compiling-tools.en.md)
-        * [Debugging tools](tools/debugging-tools.en.md)
 -----
 * Reference
     * [Framework](framework/index.en.md)

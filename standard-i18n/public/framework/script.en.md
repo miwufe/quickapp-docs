@@ -46,7 +46,7 @@ import utils from '../Common/utils.js'
 | $app            | Object  | App object                               |
 | $page           | Object  | Page object                              |
 | $valid          | Boolean | Whether the web page object is valid     |
-| $visible `101+` | Boolean | Whether the web page is in the visible to user state |
+| $visible        | Boolean | Whether the web page is in the visible to user state |
 
 ### App object
 
@@ -63,8 +63,8 @@ Accessible through `$page`
 
 | Attribute     | Type   | Description                              |
 | ------------- | ------ | ---------------------------------------- |
-| action `101+` | String | To get it, open the action of the current web page. It is only valid when the current page is opened through the matching filter, otherwise it is undefined. See [Manifest](manifest.md) to learn more. |
-| uri `101+`    | String | To get it, open the URI of the current web page. It is only valid when the current page is opened through the matching filter, otherwise it is undefined. See [Manifest](manifest.md) to learn more. |
+| action        | String | To get it, open the action of the current web page. It is only valid when the current page is opened through the matching filter, otherwise it is undefined. See [Manifest](manifest.md) to learn more. |
+| uri           | String | To get it, open the URI of the current web page. It is only valid when the current page is opened through the matching filter, otherwise it is undefined. See [Manifest](manifest.md) to learn more. |
 
 ## Method
 
@@ -97,7 +97,7 @@ Accessible through `$page`
 | $broadcast    | Function | type: String incident name               | Usage for sending an event notification to a child component: `this.$broadcast('xxx')`. Under normal circumstances, it will always transmit the event downwards, if you want to stop the transmission, call `evt.stop()` in the handle function |
 | $emit         | Function | type: String event name data: Object event parameters | Trigger event, the usage of the corresponding handler parameters called: `this.$emit('xxx')``this.$emit('xxx', {a:1})`. The transmitted event parameters can be accessed via `evt.detail` in the event callback, e.g.: `evt.detail.a` |
 | $emitElement  | Function | type: String event name data: Object event parametersid: String component ID (Default-1 represents root element) | Trigger component event, usage of the corresponding handler parameter called: `this.$emitElement('xxx', null, 'id')` `this.$emitElement('xxx', {a:1})`. The transmitted event parameters can be accessed via `evt.detail` in the event callback, e.g. `evt.detail.a` |
-| $watch `101+` | Function | data: String attribute name, supports 'a.b.c.' format, doesn't support array index handler: String event handler function name, the first parameter of the function is the new attribute value, the second parameter is the old attribute value | Dynamic additive attribute/event binding, the attribute must be defined in the data, the handler function must be defined in the `<script>`; the event will only be triggered when there is a change in the attribute value: `this.$watch('a','handler')` |
+| $watch        | Function | data: String attribute name, supports 'a.b.c.' format, doesn't support array index handler: String event handler function name, the first parameter of the function is the new attribute value, the second parameter is the old attribute value | Dynamic additive attribute/event binding, the attribute must be defined in the data, the handler function must be defined in the `<script>`; the event will only be triggered when there is a change in the attribute value: `this.$watch('a','handler')` |
 
 ### Web page method
 
@@ -119,7 +119,10 @@ Accessible through `$page`
 | onHide             | Function | None       | None         | Monitor page hiding                     | Triggered when the page is left          |
 | onDestroy          | Function | None       | None         | Monitor web page sign out               | Triggered when the page is left (doesn't enter navigation stack) |
 | onBackPress        | Function | None       | Boolean      | Monitor back button action              | Triggered when the user taps the back button. If the return is true, it means the web page processed the return logic itself; if the return is false, it means it used the default return logic; if there is no return value then it will process as false |
-| onMenuPress `101+` | Function | None       | None         | Monitor menu button action              | Triggered when a user taps the menu button |
+| onKey               | Function | Event       | Boolean      | Monitor key action                     | Triggered when the user presses some key in the keyboard or remote control. If the return is true, it means the web page processed the return logic itself; if the return is false, it means it used the default return logic; if there is no return value then it will process as false |
+| onHomeButtonPress   | Function | None       | Boolean      | Monitor home button action              | Triggered when the user taps the home button. If the return is true, it means the web page processed the return logic itself; if the return is false, it means it used the default return logic; if there is no return value then it will process as false |
+
+<!-- | onMenuPress         | Function | None       | None         | Monitor menu button action              | Triggered when a user taps the menu button | -->
 
 Call order of the web pages's interface life cycle:
 
@@ -128,7 +131,7 @@ Call order of the web pages's interface life cycle:
 - Return to page A from page B: onShow()
 - Page A return: onBackPress() -> onHide() -> onDestroy()
 
-### App life cycle `101+`
+### App life cycle
 
 | Attribute | Type     | Parameters | Return value | Description             | When to trigger                  |
 | --------- | -------- | ---------- | ------------ | ----------------------- | -------------------------------- |

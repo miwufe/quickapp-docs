@@ -43,7 +43,7 @@ The supported selectors are:
 | #id            | #firstname       | Select all components with id="firstname" |
 | tag            | div              | Select all div components                |
 | ,              | .a, .b           | Select all components with class=“.a” and class=“.b” |
-| #id .class tag | .page .body text | Supports ID, class, tag of descendant selectors, you can also use ">" to indicate direct descendant `101` |
+| #id .class tag | .page .body text | Supports ID, class, tag of descendant selectors, you can also use ">" to indicate direct descendant  |
 
 ```
 <style>
@@ -124,7 +124,7 @@ Therefore:
 
 `When we compare #page .class-div and .page .class-div, the one with a higher value is prioritized. If their values are equal, the later replaces the earlier one according to the declared order.`
 
-## Style preprocessing `101+`
+## Style preprocessing
 
 Currently supports **less** and **sass** preprocessors.
 
