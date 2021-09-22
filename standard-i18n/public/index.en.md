@@ -40,6 +40,8 @@
             <!-- * [textarea](widgets/textarea.en.md) -->
         * Media widgets
             * [video](widgets/video.en.md)
+            * [canvas](widgets/canvas.en.md)
+
         <!-- * Other widgets
             * [web](widgets/web.en.md) -->
     * [Features](features/index.en.md)
